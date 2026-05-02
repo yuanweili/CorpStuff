@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+  <root>
+    <mxCell id="0" />
+    <mxCell id="1" parent="0" />
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- TITLE -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <mxCell id="title" value="Pitch Book Intelligence Platform — End-to-End Pipeline" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1;fontColor=#1e3a5f;" vertex="1" parent="1">
+      <mxGeometry x="200" y="30" width="1200" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="subtitle" value="SharePoint → pgvector → Bedrock · Governed · Auditable · AWS Native" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#6b7280;fontStyle=2;" vertex="1" parent="1">
+      <mxGeometry x="200" y="68" width="1200" height="24" as="geometry" />
+    </mxCell>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- STAGE SWIMLANE CONTAINERS -->
+    <!-- ═══════════════════════════════════════════════ -->
+
+    <!-- Stage 1 container -->
+    <mxCell id="s1-container" value="STAGE 01 — Ingest &amp; Parse" style="swimlane;startSize=36;fillColor=#dbeafe;strokeColor=#3b9eff;strokeWidth=2;fontStyle=1;fontSize=13;fontColor=#1e40af;rounded=1;arcSize=4;swimlaneLine=1;horizontal=1;" vertex="1" parent="1">
+      <mxGeometry x="60" y="110" width="280" height="680" as="geometry" />
+    </mxCell>
+
+    <!-- Stage 2 container -->
+    <mxCell id="s2-container" value="STAGE 02 — Govern &amp; Index" style="swimlane;startSize=36;fillColor=#d1fae5;strokeColor=#22d3a0;strokeWidth=2;fontStyle=1;fontSize=13;fontColor=#065f46;rounded=1;arcSize=4;swimlaneLine=1;horizontal=1;" vertex="1" parent="1">
+      <mxGeometry x="390" y="110" width="280" height="680" as="geometry" />
+    </mxCell>
+
+    <!-- Stage 3 container -->
+    <mxCell id="s3-container" value="STAGE 03 — Agentic Search" style="swimlane;startSize=36;fillColor=#ede9fe;strokeColor=#9b72f5;strokeWidth=2;fontStyle=1;fontSize=13;fontColor=#4c1d95;rounded=1;arcSize=4;swimlaneLine=1;horizontal=1;" vertex="1" parent="1">
+      <mxGeometry x="720" y="110" width="280" height="680" as="geometry" />
+    </mxCell>
+
+    <!-- Stage 4 container -->
+    <mxCell id="s4-container" value="STAGE 04 — Generation via Bedrock" style="swimlane;startSize=36;fillColor=#fef3c7;strokeColor=#f5a623;strokeWidth=2;fontStyle=1;fontSize=13;fontColor=#92400e;rounded=1;arcSize=4;swimlaneLine=1;horizontal=1;" vertex="1" parent="1">
+      <mxGeometry x="1050" y="110" width="340" height="680" as="geometry" />
+    </mxCell>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- STAGE 1 NODES -->
+    <!-- ═══════════════════════════════════════════════ -->
+
+    <mxCell id="s1-sources" value="&lt;b&gt;Source Connectors&lt;/b&gt;&lt;br/&gt;SharePoint · S3 · Email · SMB" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#3b9eff;strokeWidth=1.5;fontSize=11;arcSize=10;" vertex="1" parent="1">
+      <mxGeometry x="90" y="170" width="220" height="60" as="geometry" />
+    </mxCell>
+
+    <mxCell id="s1-parser" value="&lt;b&gt;Document Parser&lt;/b&gt;&lt;br/&gt;pdfplumber · pymupdf · camelot" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#3b9eff;strokeWidth=1.5;fontSize=11;arcSize=10;" vertex="1" parent="1">
+      <mxGeometry x="90" y="310" width="220" height="60" as="geometry" />
+    </mxCell>
+
+    <mxCell id="s1-chunker" value="&lt;b&gt;Semantic Chunker&lt;/b&gt;&lt;br/&gt;Slide boundary · 10-15% overlap" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#3b9eff;strokeWidth=1.5;fontSize=11;arcSize=10;" vertex="1" parent="1">
+      <mxGeometry x="90" y="450" width="220" height="60" as="geometry" />
+    </mxCell>
+
+    <mxCell id="s1-embed" value="&lt;b&gt;Embedding Model&lt;/b&gt;&lt;br/&gt;Bedrock Titan Embed v2 · 1024-dim" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#3b9eff;strokeWidth=1.5;fontSize=11;arcSize=10;" vertex="1" parent="1">
+      <mxGeometry x="90" y="590" width="220" height="60" as="geometry" />
+    </mxCell>
+
+    <mxCell id="s1-pg" value="&lt;b&gt;PostgreSQL + pgvector&lt;/b&gt;&lt;br/&gt;pitchbook_chunks · S3 archive" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#3b9eff;strokeWidth=2;fontSize=11;arcSize=10;" vertex="1" parent="1">
+      <mxGeometry x="90" y="710" width="220" height="60" as="geometry" />
+    </mxCell>
+
+    <!-- Stage 1 internal connectors -->
+    <mxCell id="s1-e1" value="raw binary docs" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#3b9eff;fontSize=9;labelBackgroundColor=#eff6ff;" edge="1" source="s1-sources" target="s1-parser" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="s1-e2" value="text + tables + metadata" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#3b9eff;fontSize=9;labelBackgroundColor=#eff6ff;" edge="1" source="s1-parser" target="s1-chunker" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="s1-e3" value="enriched chunks[ ]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#3b9eff;fontSize=9;labelBackgroundColor=#eff6ff;" edge="1" source="s1-chunker" target="s1-embed" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="s1-e4" value="chunk_id · vector · provenance" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#3b9eff;fontSize=9;labelBackgroundColor=#eff6ff;" edge="1" source="s1-embed" target="s1-pg" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Stage 1 key tech note -->
+    <mxCell id="s1-tech" value="&lt;b&gt;Key Components&lt;/b&gt;&lt;br/&gt;· SharePoint Graph API + MSAL&lt;br/&gt;· pdfplumber / pymupdf&lt;br/&gt;· camelot (table extraction)&lt;br/&gt;· Bedrock Titan Embed v2&lt;br/&gt;· pgvector HNSW index&lt;br/&gt;· S3 immutable raw archive" style="text;html=1;strokeColor=#93c5fd;fillColor=#eff6ff;align=left;verticalAlign=top;spacingLeft=8;spacingTop=6;rounded=1;arcSize=5;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="90" y="800" width="220" height="110" as="geometry" />
+    </mxCell>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- STAGE 2 NODES -->
+    <!-- ═══════════════════════════════════════════════ -->
+
+    <mxCell id="s2-identity" value="&lt;b&gt;Azure AD / Okta&lt;/b&gt;&lt;br/&gt;Identity · JWT · Clearance level" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ecfdf5;strokeColor=#22d3a0;strokeWidth=1.5;fontSize=11;arcSize=10;" vertex="1" parent="1">
+      <mxGeometry x="420" y="170" width="220" height="60" as="geometry" />
+    </mxCell>
+
+    <mxCell id="s2-purview" value="&lt;b&gt;Microsoft Purview&lt;/b&gt;&lt;br/&gt;Sensitivity labels · legal hold · doc lineage" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ecfdf5;strokeColor=#06b6d4;strokeWidth=1.5;fontSize=11;arcSize=10;" vertex="1" parent="1">
+      <mxGeometry x="420" y="310" width="220" height="60" as="geometry" />
+    </mxCell>
+
+    <mxCell id="s2-alation" value="&lt;b&gt;Alation&lt;/b&gt;&lt;br/&gt;Structured asset catalog · stewardship" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ecfdf5;strokeColor=#22d3a0;strokeWidth=1.5;fontSize=11;arcSize=10;" vertex="1" parent="1">
+      <mxGeometry x="420" y="400" width="220" height="60" as="geometry" />
+    </mxCell>
+
+    <mxCell id="s2-policy" value="&lt;b&gt;Policy Engine&lt;/b&gt;&lt;br/&gt;Lake Formation · Policy Service · Postgres" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef9c3;strokeColor=#f5a623;strokeWidth=1.5;fontSize=11;arcSize=10;" vertex="1" parent="1">
+      <mxGeometry x="420" y="520" width="220" height="60" as="geometry" />
+    </mxCell>
+
+    <mxCell id="s2-index" value="&lt;b&gt;pgvector HNSW Index&lt;/b&gt;&lt;br/&gt;Per doc_class · governed partitions" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d1fae5;strokeColor=#22d3a0;strokeWidth=2;fontSize=11;arcSize=10;" vertex="1" parent="1">
+      <mxGeometry x="420" y="660" width="220" height="60" as="geometry" />
+    </mxCell>
+
+    <!-- Stage 2 internal connectors -->
+    <mxCell id="s2-e1" value="user context object" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#22d3a0;fontSize=9;labelBackgroundColor=#ecfdf5;" edge="1" source="s2-identity" target="s2-purview" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="s2-e1b" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#22d3a0;fontSize=9;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="s2-identity" target="s2-alation" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="530" y="280" />
+          <mxPoint x="530" y="400" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="s2-e2" value="doc sensitivity tags" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#06b6d4;fontSize=9;labelBackgroundColor=#ecfdf5;" edge="1" source="s2-purview" target="s2-policy" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="s2-e3" value="structured asset permissions" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#22d3a0;fontSize=9;labelBackgroundColor=#ecfdf5;" edge="1" source="s2-alation" target="s2-policy" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="s2-e4" value="permitted_doc_class[ ]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#f5a623;fontSize=9;labelBackgroundColor=#fef9c3;" edge="1" source="s2-policy" target="s2-index" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Stage 2 key tech note -->
+    <mxCell id="s2-tech" value="&lt;b&gt;Key Components&lt;/b&gt;&lt;br/&gt;· Azure AD / Okta (SAML + JWT)&lt;br/&gt;· Microsoft Purview (M365 native)&lt;br/&gt;· Alation (SQL / BI catalog)&lt;br/&gt;· AWS Lake Formation (coarse)&lt;br/&gt;· Custom Policy Service (fine)&lt;br/&gt;· Postgres: doc_policy table" style="text;html=1;strokeColor=#6ee7b7;fillColor=#ecfdf5;align=left;verticalAlign=top;spacingLeft=8;spacingTop=6;rounded=1;arcSize=5;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="420" y="760" width="220" height="110" as="geometry" />
+    </mxCell>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- STAGE 3 NODES -->
+    <!-- ═══════════════════════════════════════════════ -->
+
+    <mxCell id="s3-supervisor" value="&lt;b&gt;Supervisor Agent&lt;/b&gt;&lt;br/&gt;Claude Sonnet · query decompose · route" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f3ff;strokeColor=#9b72f5;strokeWidth=2;fontSize=11;arcSize=10;" vertex="1" parent="1">
+      <mxGeometry x="750" y="170" width="220" height="60" as="geometry" />
+    </mxCell>
+
+    <mxCell id="s3-agent1" value="&lt;b&gt;Agent 01 — Semantic Search&lt;/b&gt;&lt;br/&gt;Policy-filtered HNSW · rerank" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f3ff;strokeColor=#9b72f5;strokeWidth=1.5;fontSize=11;arcSize=10;" vertex="1" parent="1">
+      <mxGeometry x="750" y="310" width="220" height="60" as="geometry" />
+    </mxCell>
+
+    <mxCell id="s3-agent2" value="&lt;b&gt;Agent 02 — Structured Data&lt;/b&gt;&lt;br/&gt;Text2SQL · RLS · comps pull" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f3ff;strokeColor=#9b72f5;strokeWidth=1.5;fontSize=11;arcSize=10;" vertex="1" parent="1">
+      <mxGeometry x="750" y="420" width="220" height="60" as="geometry" />
+    </mxCell>
+
+    <mxCell id="s3-agent3" value="&lt;b&gt;Agent 03 — Validation&lt;/b&gt;&lt;br/&gt;Re-verify access · attach provenance" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ecfdf5;strokeColor=#22d3a0;strokeWidth=1.5;fontSize=11;arcSize=10;" vertex="1" parent="1">
+      <mxGeometry x="750" y="530" width="220" height="60" as="geometry" />
+    </mxCell>
+
+    <mxCell id="s3-package" value="&lt;b&gt;Context Package&lt;/b&gt;&lt;br/&gt;ranked_chunks · comps · provenance_map · audit_ref" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ede9fe;strokeColor=#9b72f5;strokeWidth=2;fontSize=11;arcSize=10;" vertex="1" parent="1">
+      <mxGeometry x="750" y="660" width="220" height="60" as="geometry" />
+    </mxCell>
+
+    <!-- Stage 3 internal connectors -->
+    <mxCell id="s3-e1" value="sub-tasks dispatched" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#9b72f5;fontSize=9;labelBackgroundColor=#f5f3ff;" edge="1" source="s3-supervisor" target="s3-agent1" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="s3-e1b" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#9b72f5;fontSize=9;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" source="s3-supervisor" target="s3-agent2" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="860" y="280" />
+          <mxPoint x="860" y="420" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="s3-e2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#9b72f5;fontSize=9;" edge="1" source="s3-agent1" target="s3-agent2" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="s3-e3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#9b72f5;fontSize=9;" edge="1" source="s3-agent2" target="s3-agent3" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="s3-e4" value="merged results" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#9b72f5;fontSize=9;labelBackgroundColor=#f5f3ff;" edge="1" source="s3-agent3" target="s3-package" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Stage 3 key tech note -->
+    <mxCell id="s3-tech" value="&lt;b&gt;Key Components&lt;/b&gt;&lt;br/&gt;· LangGraph supervisor pattern&lt;br/&gt;· Bedrock Claude Sonnet 4&lt;br/&gt;· pgvector policy-filtered ANN&lt;br/&gt;· Text2SQL + Postgres RLS&lt;br/&gt;· Cross-encoder reranker&lt;br/&gt;· Postgres audit log writer" style="text;html=1;strokeColor=#c4b5fd;fillColor=#f5f3ff;align=left;verticalAlign=top;spacingLeft=8;spacingTop=6;rounded=1;arcSize=5;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="750" y="760" width="220" height="110" as="geometry" />
+    </mxCell>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- STAGE 4 NODES -->
+    <!-- ═══════════════════════════════════════════════ -->
+
+    <mxCell id="s4-prompt" value="&lt;b&gt;Prompt Engineering Layer&lt;/b&gt;&lt;br/&gt;System prompt · context inject · guardrails" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fffbeb;strokeColor=#f5a623;strokeWidth=1.5;fontSize=11;arcSize=10;" vertex="1" parent="1">
+      <mxGeometry x="1080" y="170" width="280" height="60" as="geometry" />
+    </mxCell>
+
+    <mxCell id="s4-bedrock" value="&lt;b&gt;Bedrock Inference&lt;/b&gt;&lt;br/&gt;Claude Sonnet 4 · Nova Pro · VPC PrivateLink" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fffbeb;strokeColor=#f5a623;strokeWidth=1.5;fontSize=11;arcSize=10;" vertex="1" parent="1">
+      <mxGeometry x="1080" y="310" width="280" height="60" as="geometry" />
+    </mxCell>
+
+    <mxCell id="s4-hitl" value="&lt;b&gt;Human Review Gate&lt;/b&gt;&lt;br/&gt;Banker approval · APPROVE / REVISE / REJECT" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ecfdf5;strokeColor=#22d3a0;strokeWidth=2;fontSize=11;arcSize=10;" vertex="1" parent="1">
+      <mxGeometry x="1080" y="450" width="280" height="60" as="geometry" />
+    </mxCell>
+
+    <mxCell id="s4-outputs" value="&lt;b&gt;Output Artifacts&lt;/b&gt;&lt;br/&gt;Pitch book sections (PPTX/Word)&lt;br/&gt;Financial model scaffold (Excel)&lt;br/&gt;Research memo (PDF + citations)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fffbeb;strokeColor=#f5a623;strokeWidth=1.5;fontSize=11;arcSize=10;" vertex="1" parent="1">
+      <mxGeometry x="1080" y="580" width="280" height="70" as="geometry" />
+    </mxCell>
+
+    <mxCell id="s4-provenance" value="End-to-End Provenance Chain — Postgres · S3 · CloudTrail" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ede9fe;strokeColor=#9b72f5;strokeWidth=1.5;fontSize=10;arcSize=10;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="1080" y="710" width="280" height="36" as="geometry" />
+    </mxCell>
+
+    <!-- Stage 4 internal connectors -->
+    <mxCell id="s4-e1" value="structured prompt" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#f5a623;fontSize=9;labelBackgroundColor=#fffbeb;" edge="1" source="s4-prompt" target="s4-bedrock" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="s4-e2" value="AI draft + citations" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#f5a623;fontSize=9;labelBackgroundColor=#fffbeb;" edge="1" source="s4-bedrock" target="s4-hitl" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="s4-e3" value="approved output" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#22d3a0;fontSize=9;labelBackgroundColor=#ecfdf5;" edge="1" source="s4-hitl" target="s4-outputs" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="s4-e4" value="artifact_id → audit chain" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#9b72f5;fontSize=9;labelBackgroundColor=#f5f3ff;" edge="1" source="s4-outputs" target="s4-provenance" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- REVISE loop back -->
+    <mxCell id="s4-revise" value="REVISE → re-generate" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#f5a623;strokeDashArray=6 4;fontSize=9;labelBackgroundColor=#fffbeb;exitX=1;exitY=0.5;entryX=1;entryY=0.5;" edge="1" source="s4-hitl" target="s4-bedrock" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="1400" y="480" />
+          <mxPoint x="1400" y="340" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+
+    <!-- Stage 4 key tech note -->
+    <mxCell id="s4-tech" value="&lt;b&gt;Key Components&lt;/b&gt;&lt;br/&gt;· Bedrock Claude Sonnet 4 (narrative)&lt;br/&gt;· Bedrock Nova Pro (structured)&lt;br/&gt;· Bedrock Guardrails API&lt;br/&gt;· VPC PrivateLink (no public egress)&lt;br/&gt;· HITL review UI&lt;br/&gt;· S3 prompt + completion archive" style="text;html=1;strokeColor=#fcd34d;fillColor=#fffbeb;align=left;verticalAlign=top;spacingLeft=8;spacingTop=6;rounded=1;arcSize=5;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="1080" y="790" width="280" height="110" as="geometry" />
+    </mxCell>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- INTER-STAGE HANDOFF ARROWS -->
+    <!-- ═══════════════════════════════════════════════ -->
+
+    <!-- Handoff 1→2: pgvector → governed index -->
+    <mxCell id="h12" value="chunk_id · doc_class · provenance FK" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#1e40af;strokeWidth=2.5;fontSize=10;fontStyle=1;labelBackgroundColor=#dbeafe;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" source="s1-pg" target="s2-index" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Handoff 2→3: governed index → supervisor -->
+    <mxCell id="h23" value="governed index · permitted_doc_class · user context" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#065f46;strokeWidth=2.5;fontSize=10;fontStyle=1;labelBackgroundColor=#d1fae5;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" source="s2-index" target="s3-supervisor" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Handoff 3→4: context package → prompt builder -->
+    <mxCell id="h34" value="ranked_chunks · structured_comps · provenance_map · access_log_ref" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#4c1d95;strokeWidth=2.5;fontSize=10;fontStyle=1;labelBackgroundColor=#ede9fe;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" source="s3-package" target="s4-prompt" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- SHARED INFRASTRUCTURE STRIP -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <mxCell id="infra" value="&lt;b&gt;Shared Infrastructure&lt;/b&gt;  |  PostgreSQL + pgvector (chunks · policy · audit · provenance)  ·  AWS S3 (raw archive + prompt log)  ·  CloudTrail (IAM audit)  ·  CloudWatch (observability)" style="text;html=1;strokeColor=#d1d5db;fillColor=#f9fafb;align=left;verticalAlign=middle;spacingLeft=12;rounded=1;arcSize=3;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="60" y="930" width="1370" height="44" as="geometry" />
+    </mxCell>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- COMPLIANCE BANNER -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <mxCell id="compliance" value="✅  COMPLIANCE POSTURE — Policy-filtered retrieval · HITL review gate · Full provenance chain · CloudTrail audit · VPC PrivateLink · Bedrock Guardrails" style="text;html=1;strokeColor=#22d3a0;fillColor=#ecfdf5;align=center;verticalAlign=middle;rounded=1;arcSize=3;fontSize=11;fontStyle=1;fontColor=#065f46;" vertex="1" parent="1">
+      <mxGeometry x="60" y="985" width="1370" height="36" as="geometry" />
+    </mxCell>
+
+  </root>
+</mxGraphModel>
