@@ -760,6 +760,28 @@
         </div>
       </div>
 
+      <div class="signal-card card-cm" style="grid-column: 1 / -1">
+        <div class="signal-card-head">
+          <div class="signal-card-title">XBRL: Net leverage change — directional trend &amp; inflection</div>
+          <span class="tier-badge tier-2">Tier 2</span>
+        </div>
+        <div class="signal-card-body">
+          <p>The <strong>directional change</strong> in Net Debt / EBITDA across 4–6 quarters is often more actionable than the ratio at any single point. A re-leveraging inflection after a multi-year deleveraging trend is a deal signal regardless of the absolute level — the company has either made an acquisition, drawn on its revolver, or is seeing EBITDA erosion.</p>
+          <p><strong>Trend signals:</strong> Re-leveraging (ratio increasing 2+ consecutive quarters) → DCM/M&A. Aggressive deleveraging → recap or acquisition financing pitch. Inflection (was falling, now rising) → early warning flag regardless of absolute level.</p>
+          <p><strong>Structural threshold crossings:</strong> Crossing 3.0× upward = entering leveraged territory (DCM conversation). Crossing 4.5× upward = approaching covenant risk (RX conversation). Crossing 5.5× upward = distressed zone. Crossing 2.0× downward = underleveraged recap candidate.</p>
+          <p style="font-size:12.5px;color:var(--muted);margin-top:8px"><strong>Implementation notes:</strong> Use TTM EBITDA (sum of trailing 4 quarterly values) not single-quarter annualized. Apply debt taxonomy fallback hierarchy: <code>LongTermDebt</code> → <code>LongTermDebtAndCapitalLeaseObligations</code> → <code>LongTermDebtNoncurrent</code> → <code>NotesPayable</code>. Flag ASC 842 boundary (2019) for retail, airlines, real estate — operating lease capitalisation inflates apparent leverage.</p>
+          <div class="signal-form">
+            <span class="form-label">Forms</span>
+            <span class="form-pill">10-K / 10-Q (XBRL)</span>
+            <span class="form-label" style="margin-left:8px">XBRL fields</span>
+            <span class="form-pill">LongTermDebt</span>
+            <span class="form-pill">OperatingIncomeLoss</span>
+            <span class="form-pill">DepreciationAndAmortization</span>
+            <span class="form-pill">CashAndCashEquivalents</span>
+          </div>
+        </div>
+      </div>
+
       <div class="signal-card card-cm">
         <div class="signal-card-head">
           <div class="signal-card-title">XBRL: FCF acceleration + underleveraged</div>
@@ -805,15 +827,62 @@
     </div>
 
     <div class="code-block">
-      <pre><span class="code-comment"># Leverage ratio trending — quarterly XBRL pull</span>
+      <pre><span class="code-comment"># Net leverage directional trend — full implementation</span>
 <span class="code-keyword">from</span> edgar <span class="code-keyword">import</span> Company
 
-<span class="code-keyword">def</span> <span class="code-fn">get_leverage_trend</span>(ticker: str) -> list[float]:
+<span class="code-var">DEBT_CONCEPTS</span> = [  <span class="code-comment"># fallback hierarchy — try in order</span>
+    <span class="code-string">"us-gaap/LongTermDebt"</span>,
+    <span class="code-string">"us-gaap/LongTermDebtAndCapitalLeaseObligations"</span>,
+    <span class="code-string">"us-gaap/LongTermDebtNoncurrent"</span>,
+    <span class="code-string">"us-gaap/NotesPayable"</span>,
+]
+
+<span class="code-keyword">def</span> <span class="code-fn">compute_net_leverage_trend</span>(ticker: str, n_quarters: int = <span class="code-num">6</span>) -> dict:
     <span class="code-var">company</span>  = Company(ticker)
     <span class="code-var">facts_df</span> = <span class="code-var">company</span>.get_facts().to_pandas()
-    <span class="code-comment"># Filter for LongTermDebt and OperatingIncomeLoss</span>
-    <span class="code-comment"># Compute Net Debt / EBITDA by period, return trailing 6 quarters</span>
-    ...
+
+    <span class="code-keyword">def</span> <span class="code-fn">latest_by_period</span>(concept):
+        <span class="code-var">s</span> = <span class="code-var">facts_df</span>[<span class="code-var">facts_df</span>[<span class="code-string">"concept"</span>].str.endswith(concept.split(<span class="code-string">"/"</span>)[<span class="code-num">-1</span>])]
+        <span class="code-var">s</span> = <span class="code-var">s</span>[<span class="code-var">s</span>[<span class="code-string">"form"</span>].isin([<span class="code-string">"10-Q"</span>, <span class="code-string">"10-K"</span>])]
+        <span class="code-keyword">return</span> <span class="code-var">s</span>.sort_values(<span class="code-string">"filed"</span>).groupby(<span class="code-string">"end"</span>)[<span class="code-string">"val"</span>].last()
+
+    <span class="code-var">debt_series</span> = <span class="code-keyword">None</span>
+    <span class="code-keyword">for</span> c <span class="code-keyword">in</span> <span class="code-var">DEBT_CONCEPTS</span>:
+        <span class="code-var">s</span> = <span class="code-fn">latest_by_period</span>(c)
+        <span class="code-keyword">if not</span> <span class="code-var">s</span>.empty:
+            <span class="code-var">debt_series</span> = <span class="code-var">s</span>; <span class="code-keyword">break</span>
+
+    <span class="code-var">cash_s</span> = <span class="code-fn">latest_by_period</span>(<span class="code-string">"CashAndCashEquivalentsAtCarryingValue"</span>)
+    <span class="code-var">ebit_s</span> = <span class="code-fn">latest_by_period</span>(<span class="code-string">"OperatingIncomeLoss"</span>)
+    <span class="code-var">da_s</span>   = <span class="code-fn">latest_by_period</span>(<span class="code-string">"DepreciationAndAmortization"</span>)
+
+    <span class="code-var">periods</span> = sorted(set(<span class="code-var">debt_series</span>.index) & set(<span class="code-var">ebit_s</span>.index))[-n_quarters:]
+    <span class="code-var">ratios</span>  = []
+    <span class="code-keyword">for</span> period <span class="code-keyword">in</span> <span class="code-var">periods</span>:
+        <span class="code-var">ttm_p</span>      = [p <span class="code-keyword">for</span> p <span class="code-keyword">in</span> <span class="code-var">ebit_s</span>.index <span class="code-keyword">if</span> p <= period][-<span class="code-num">4</span>:]
+        <span class="code-var">ttm_ebitda</span> = <span class="code-var">ebit_s</span>[<span class="code-var">ttm_p</span>].sum() + <span class="code-var">da_s</span>[<span class="code-var">ttm_p</span>].sum()  <span class="code-comment"># TTM — not single-quarter!</span>
+        <span class="code-var">net_debt</span>   = <span class="code-var">debt_series</span>.get(period, <span class="code-num">0</span>) - <span class="code-var">cash_s</span>.get(period, <span class="code-num">0</span>)
+        <span class="code-keyword">if</span> <span class="code-var">ttm_ebitda</span> > <span class="code-num">0</span>:
+            <span class="code-var">ratios</span>.append((period, round(<span class="code-var">net_debt</span> / <span class="code-var">ttm_ebitda</span>, <span class="code-num">2</span>)))
+
+    <span class="code-var">vals</span>   = [r <span class="code-keyword">for</span> _, r <span class="code-keyword">in</span> <span class="code-var">ratios</span>]
+    <span class="code-var">deltas</span> = [<span class="code-var">vals</span>[i] - <span class="code-var">vals</span>[i-<span class="code-num">1</span>] <span class="code-keyword">for</span> i <span class="code-keyword">in</span> range(<span class="code-num">1</span>, len(<span class="code-var">vals</span>))]
+    <span class="code-var">re_lev</span> = len(<span class="code-var">deltas</span>) >= <span class="code-num">2</span> <span class="code-keyword">and</span> all(d > <span class="code-num">0</span> <span class="code-keyword">for</span> d <span class="code-keyword">in</span> <span class="code-var">deltas</span>[-<span class="code-num">2</span>:])
+    <span class="code-var">de_lev</span> = len(<span class="code-var">deltas</span>) >= <span class="code-num">2</span> <span class="code-keyword">and</span> all(d < <span class="code-num">0</span> <span class="code-keyword">for</span> d <span class="code-keyword">in</span> <span class="code-var">deltas</span>[-<span class="code-num">2</span>:])
+    <span class="code-var">curr</span>, <span class="code-var">prev</span> = <span class="code-var">vals</span>[-<span class="code-num">1</span>], <span class="code-var">vals</span>[-<span class="code-num">2</span>]
+
+    <span class="code-keyword">return</span> {
+        <span class="code-string">"ticker"</span>:         ticker,
+        <span class="code-string">"current_ratio"</span>:  <span class="code-var">curr</span>,
+        <span class="code-string">"qoq_delta"</span>:      <span class="code-var">deltas</span>[-<span class="code-num">1</span>],
+        <span class="code-string">"trend"</span>:          <span class="code-string">"re-leveraging"</span> <span class="code-keyword">if</span> <span class="code-var">re_lev</span> <span class="code-keyword">else</span> <span class="code-string">"de-leveraging"</span> <span class="code-keyword">if</span> <span class="code-var">de_lev</span> <span class="code-keyword">else</span> <span class="code-string">"stable"</span>,
+        <span class="code-string">"threshold_flags"</span>: {
+            <span class="code-string">"crossed_3x_up"</span>:   <span class="code-var">prev</span> < <span class="code-num">3.0</span> <= <span class="code-var">curr</span>,   <span class="code-comment"># entering leveraged → DCM</span>
+            <span class="code-string">"crossed_4_5x_up"</span>: <span class="code-var">prev</span> < <span class="code-num">4.5</span> <= <span class="code-var">curr</span>,   <span class="code-comment"># covenant risk → RX</span>
+            <span class="code-string">"crossed_5_5x_up"</span>: <span class="code-var">prev</span> < <span class="code-num">5.5</span> <= <span class="code-var">curr</span>,   <span class="code-comment"># distressed zone</span>
+            <span class="code-string">"crossed_2x_down"</span>: <span class="code-var">prev</span> > <span class="code-num">2.0</span> >= <span class="code-var">curr</span>,   <span class="code-comment"># recap candidate</span>
+        },
+    }
 
 <span class="code-comment"># Form D sweep — run nightly</span>
 <span class="code-var">form_d_filings</span> = get_all_current_filings(form=<span class="code-string">"D"</span>)
@@ -1108,7 +1177,19 @@
         <span class="score-val score-3">+3</span>
       </div>
       <div class="score-row">
+        <span class="score-label">Net leverage re-leveraging inflection</span>
+        <span class="score-val score-3">+3</span>
+      </div>
+      <div class="score-row">
+        <span class="score-label">Net leverage crossing structural threshold (3×, 4.5×, 5.5×)</span>
+        <span class="score-val score-3">+3</span>
+      </div>
+      <div class="score-row">
         <span class="score-label">Leverage ratio trending up 3+ quarters</span>
+        <span class="score-val score-2">+2</span>
+      </div>
+      <div class="score-row">
+        <span class="score-label">Net leverage aggressive deleveraging (recap candidate)</span>
         <span class="score-val score-2">+2</span>
       </div>
       <div class="score-row">
@@ -1157,6 +1238,26 @@
             <td>Leverage creep + capex surge</td>
             <td>DCM / Leveraged Finance</td>
             <td>Proactive refi advisory or project finance</td>
+          </tr>
+          <tr>
+            <td>Net leverage re-leveraging inflection</td>
+            <td>DCM / M&amp;A</td>
+            <td>Acquisition financing or covenant advisory</td>
+          </tr>
+          <tr>
+            <td>Net leverage crossing 4.5× / 5.5× threshold</td>
+            <td>Restructuring</td>
+            <td>Liability management / distressed advisory</td>
+          </tr>
+          <tr>
+            <td>Net leverage aggressive deleveraging</td>
+            <td>M&amp;A / ECM</td>
+            <td>M&amp;A capacity or leveraged recap pitch</td>
+          </tr>
+          <tr>
+            <td>Net leverage &lt;0.5× (net cash)</td>
+            <td>M&amp;A / ECM</td>
+            <td>Acquisition financing or leveraged recap</td>
           </tr>
           <tr>
             <td>FCF acceleration + underleveraged</td>

@@ -210,6 +210,156 @@ def get_leverage_trend(ticker: str, n_quarters: int = 6) -> list[float]:
 
 ---
 
+### Signal 3A-ii — XBRL: Net Leverage Change (Directional Trend) `Tier 2`
+
+A companion to static leverage threshold screening. The **directional change** in Net Debt / EBITDA across 4–6 quarters is often more actionable than the ratio at any single point — a re-leveraging inflection after a multi-year deleveraging trend is a deal signal regardless of the absolute level.
+
+**Why it matters for IB:** A company that spent 3 years paying down debt and has now reversed — ratio increasing for 2+ consecutive quarters — has either made an acquisition, drawn on its revolver for a reason, or is seeing EBITDA erosion. All three are conversations.
+
+**Forms:** `10-K`, `10-Q` (XBRL)
+
+#### XBRL fields and fallback hierarchy
+
+Not all filers use the same debt taxonomy. Use a fallback hierarchy:
+
+```python
+# Debt concepts — try in order, take first non-null match
+DEBT_CONCEPTS = [
+    "us-gaap/LongTermDebt",
+    "us-gaap/LongTermDebtAndCapitalLeaseObligations",
+    "us-gaap/LongTermDebtNoncurrent",
+    "us-gaap/DebtAndCapitalLeaseObligations",
+    "us-gaap/NotesPayable",
+]
+
+# Cash
+CASH_CONCEPT = "us-gaap/CashAndCashEquivalentsAtCarryingValue"
+
+# EBITDA proxy: OperatingIncomeLoss + DepreciationAndAmortization
+# Note: D&A is sometimes only in the cash flow statement in XBRL —
+# company.get_facts() pulls across all statements so it is always findable,
+# but period alignment (quarterly vs. annual) requires care.
+EBIT_CONCEPT = "us-gaap/OperatingIncomeLoss"
+DA_CONCEPT   = "us-gaap/DepreciationAndAmortization"
+```
+
+#### TTM EBITDA — the key aggregation step
+
+XBRL reports quarterly snapshots. For a meaningful ratio you need **trailing twelve months** EBITDA, not a single quarter annualized. Sum the last 4 quarterly `OperatingIncomeLoss` values:
+
+```python
+from edgar import Company
+import pandas as pd
+
+def compute_net_leverage_trend(ticker: str, n_quarters: int = 6) -> dict:
+    """
+    Compute trailing Net Debt / EBITDA per quarter and detect trend direction.
+
+    Returns dict with:
+      - ratios:        list of (period, ratio) tuples, oldest first
+      - current_ratio: latest Net Debt / EBITDA
+      - qoq_delta:     latest quarter-over-quarter change
+      - trend:         "re-leveraging" | "de-leveraging" | "stable"
+      - inflection:    True if trend reversed in last 2 quarters
+      - threshold_flags: dict of structural threshold crossings
+    """
+    company  = Company(ticker)
+    facts_df = company.get_facts().to_pandas()
+
+    # ── Pull quarterly debt, cash, EBIT, D&A ───────────────────────────
+    def latest_by_period(concept: str) -> pd.Series:
+        subset = facts_df[facts_df["concept"].str.endswith(concept.split("/")[-1])]
+        subset = subset[subset["form"].isin(["10-Q", "10-K"])]
+        return (subset.sort_values("filed")
+                      .groupby("end")["val"]
+                      .last())
+
+    debt_series = None
+    for concept in DEBT_CONCEPTS:
+        s = latest_by_period(concept)
+        if not s.empty:
+            debt_series = s
+            break
+
+    cash_series  = latest_by_period(CASH_CONCEPT)
+    ebit_series  = latest_by_period(EBIT_CONCEPT)
+    da_series    = latest_by_period(DA_CONCEPT)
+
+    if debt_series is None or ebit_series.empty:
+        return {"ticker": ticker, "error": "insufficient XBRL data"}
+
+    # ── Align periods and compute quarterly ratios ──────────────────────
+    periods = sorted(set(debt_series.index) & set(ebit_series.index))[-n_quarters:]
+    ratios  = []
+
+    for i, period in enumerate(periods):
+        # TTM EBITDA: sum of last 4 available quarterly EBIT + D&A values
+        ttm_periods  = [p for p in ebit_series.index if p <= period][-4:]
+        ttm_ebit     = ebit_series[ttm_periods].sum()
+        ttm_da       = da_series[ttm_periods].sum() if not da_series.empty else 0
+        ttm_ebitda   = ttm_ebit + ttm_da
+
+        net_debt = (debt_series.get(period, 0)
+                    - cash_series.get(period, 0))
+
+        if ttm_ebitda > 0:
+            ratios.append((period, round(net_debt / ttm_ebitda, 2)))
+
+    if len(ratios) < 2:
+        return {"ticker": ticker, "error": "insufficient quarters"}
+
+    # ── Trend detection ─────────────────────────────────────────────────
+    ratio_vals    = [r for _, r in ratios]
+    deltas        = [ratio_vals[i] - ratio_vals[i-1] for i in range(1, len(ratio_vals))]
+    re_leveraging = len(deltas) >= 2 and all(d > 0 for d in deltas[-2:])
+    de_leveraging = len(deltas) >= 2 and all(d < 0 for d in deltas[-2:])
+
+    # Inflection: was de-leveraging, now re-leveraging
+    was_deleveraging = len(deltas) >= 4 and all(d < 0 for d in deltas[-4:-2])
+    inflection       = was_deleveraging and re_leveraging
+
+    current = ratio_vals[-1]
+
+    # ── Structural threshold crossings ─────────────────────────────────
+    prev    = ratio_vals[-2]
+    thresholds = {
+        "crossed_3x_up":   prev < 3.0 <= current,   # entering leveraged territory
+        "crossed_4_5x_up": prev < 4.5 <= current,   # approaching covenant risk
+        "crossed_5_5x_up": prev < 5.5 <= current,   # distressed zone
+        "crossed_2x_down": prev > 2.0 >= current,   # underleveraged / recap candidate
+    }
+
+    return {
+        "ticker":          ticker,
+        "ratios":          ratios,
+        "current_ratio":   current,
+        "qoq_delta":       deltas[-1],
+        "trend":           ("re-leveraging" if re_leveraging
+                            else "de-leveraging" if de_leveraging
+                            else "stable"),
+        "inflection":      inflection,
+        "threshold_flags": thresholds,
+    }
+```
+
+#### IB deal routing by leverage signal
+
+| Signal | Direction | Route To | Hook |
+|--------|-----------|----------|------|
+| Net Debt/EBITDA 2.5× → 3.5× over 4 quarters | Re-leveraging, approaching leveraged | DCM / Leveraged Finance | Proactive refi / covenant review |
+| Net Debt/EBITDA > 4.5× + interest coverage < 2× | Distress zone | Restructuring | Liability management pitch |
+| Net Debt/EBITDA 4.0× → 1.5× over 6 quarters | Aggressive deleveraging | M&A / ECM | M&A capacity / recap opportunity |
+| Net Debt/EBITDA < 0.5× (net cash position) | Underleveraged | M&A / ECM | Leveraged recap or acquisition financing |
+| Re-leveraging inflection after 3+ years declining | Trend reversal | DCM / M&A | Acquisition financing or distress early warning |
+
+#### Implementation notes
+
+- **ASC 842 lease accounting boundary (2019):** Operating leases moved onto balance sheet as `OperatingLeaseLiability`. Cross-2018/2019 leverage trend comparisons will show an apparent jump in debt that is accounting change, not real leverage increase. Flag this in signal output for retail, airlines, and real estate-heavy companies (SIC codes 5200–5999, 4500–4599, 6500–6599).
+- **D&A location in XBRL:** D&A is sometimes reported only in the cash flow statement, not the income statement. `company.get_facts().to_pandas()` pulls across all statements so it is always findable — but verify the `form` and `period` columns align correctly when joining to EBIT.
+- **Negative EBITDA companies:** Skip the ratio computation (division by zero / misleading result) and route directly to restructuring screening if EBITDA has been negative for 2+ consecutive quarters.
+
+---
+
 ### Signal 3B — XBRL: FCF Acceleration + Underleveraged Balance Sheet `Tier 3`
 
 Strong and accelerating free cash flow with almost no debt. These companies either become acquisition currency or get pitched a leveraged recapitalization. They represent a proactive ECM or M&A advisory conversation.
@@ -545,7 +695,10 @@ Individual signals are interesting. A company hitting three independent signals 
 | Pack formation (3+ new 13F holders) | +3 | Tier 3 |
 | EV/EBITDA > 1.5σ below sector median | +3 | Tier 3 |
 | Interest coverage < 1.5× (declining) | +3 | Tier 2 |
+| Net leverage re-leveraging inflection (trend reversal) | +3 | Tier 2 |
+| Net leverage crossing structural threshold (3×, 4.5×, 5.5×) | +3 | Tier 2 |
 | Leverage ratio trending up 3+ quarters | +2 | Tier 2 |
+| Net leverage aggressive deleveraging (recap candidate) | +2 | Tier 3 |
 | High institutional ownership churn | +2 | Tier 3 |
 | Form D > $50M equity raise | +2 | Tier 2 |
 | Capex / Revenue surged > 15% | +2 | Tier 2 |
@@ -560,6 +713,10 @@ Individual signals are interesting. A company hitting three independent signals 
 | Pack formation + valuation discount | M&A Coverage | Takeout screening deck for sector |
 | CEO exit + pack formation | M&A Senior Coverage | Strategic review pitch with comp set |
 | Leverage creep + capex surge | DCM / Leveraged Finance | Proactive refi advisory or project finance |
+| Net leverage re-leveraging inflection | DCM / M&A | Acquisition financing or covenant advisory |
+| Net leverage crossing 4.5× / 5.5× threshold | Restructuring | Liability management / distressed advisory |
+| Net leverage aggressive deleveraging | M&A / ECM | M&A capacity or leveraged recap pitch |
+| Net leverage < 0.5× (net cash) | M&A / ECM | Acquisition financing or leveraged recap |
 | FCF acceleration + underleveraged | ECM / M&A | Leveraged recapitalization or acquisition financing |
 | Form D > $50M | ECM (IPO Pipeline) | Coverage initiation, IPO readiness discussion |
 | Bankruptcy / restatement / interest coverage < 1× | Restructuring Advisory | Distressed advisory / liability management |
