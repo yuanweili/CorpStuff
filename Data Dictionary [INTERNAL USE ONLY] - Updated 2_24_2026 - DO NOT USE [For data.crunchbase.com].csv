@@ -1,0 +1,828 @@
+Row No,Entity Name,Field Name,Description,API / CSV
+1,ACQUISITIONS,acquiree_categories,"Keyword, sector, or industry",API & CSV
+2,ACQUISITIONS,acquiree_funding_total,Total funding amount raised across all acquired organization's funding rounds,API & CSV
+3,ACQUISITIONS,acquiree_identifier,Name of the acquired organization,API & CSV
+4,ACQUISITIONS,acquiree_last_funding_type,"Last funding round type (e.g. Series A, Seed, Private Equity)",API & CSV
+5,ACQUISITIONS,acquiree_locations,Where the acquired organization is headquartered,API & CSV
+6,ACQUISITIONS,acquiree_num_funding_rounds,Acquired organization's total number of funding rounds,API & CSV
+7,ACQUISITIONS,acquiree_revenue_range,Estimated revenue range for acquired organization,API & CSV
+8,ACQUISITIONS,acquiree_short_description,"Text of acquired organization's description, industries, and industry groups",API & CSV
+9,ACQUISITIONS,acquirer_categories,"Keyword, sector, or industry",API & CSV
+10,ACQUISITIONS,acquirer_funding_stage,Acquiring organization's most recent funding status,API & CSV
+11,ACQUISITIONS,acquirer_funding_total,Total funding amount raised across all acquiring organization's funding rounds,API & CSV
+12,ACQUISITIONS,acquirer_identifier,Name of the acquiring organization,API & CSV
+13,ACQUISITIONS,acquirer_locations,Where the organization is headquartered,API & CSV
+14,ACQUISITIONS,acquirer_num_funding_rounds,Acquiring organization's total number of funding rounds,API & CSV
+15,ACQUISITIONS,acquirer_revenue_range,Estimated revenue range for acquiring organization,API & CSV
+16,ACQUISITIONS,acquirer_short_description,"Text of acquiring organization's description, industries, and industry groups",API & CSV
+17,ACQUISITIONS,acquisition_type,Type of acquisition,API & CSV
+18,ACQUISITIONS,announced_on,Date the acquisition was announced,API & CSV
+19,ACQUISITIONS,completed_on,Date the Acquisition was completed,API & CSV
+20,ACQUISITIONS,created_at,,API & CSV
+21,ACQUISITIONS,disposition_of_acquired,How is the acquired Organization structured after the acquisition,API & CSV
+22,ACQUISITIONS,entity_def_id,,API & CSV
+23,ACQUISITIONS,facet_ids,,API & CSV
+24,ACQUISITIONS,identifier,Auto-generated name of transaction (e.g. WhatsApp acquired by Facebook),API & CSV
+25,ACQUISITIONS,permalink,,API & CSV
+26,ACQUISITIONS,price,Price of the acquisition,API & CSV
+27,ACQUISITIONS,rank,Algorithmic rank assigned to the top profiles on Crunchbase,API & CSV
+28,ACQUISITIONS,rank_acquisition,"Algorithmic rank assigned to the top 100,000 most active Acquisitions",API & CSV
+29,ACQUISITIONS,sentiment,Sentiment associated with acquisition,API & CSV
+30,ACQUISITIONS,short_description,Short description of the Acquisition,API & CSV
+31,ACQUISITIONS,status,Status of the acquisition,API & CSV
+32,ACQUISITIONS,terms,Terms of the acquisition,API & CSV
+33,ACQUISITIONS,updated_at,,API & CSV
+34,ACQUISITIONS,uuid,,API & CSV
+35,ACQUISITION_PREDICTIONS,created_at,Time of Creation,API & CSV
+36,ACQUISITION_PREDICTIONS,entity_def_id,Entity Def Type,API & CSV
+37,ACQUISITION_PREDICTIONS,example_acquisition,An example of a similar company in the same industry that was acquired in the last 6 months,API & CSV
+38,ACQUISITION_PREDICTIONS,generated_on,Date on which this Acquisition Prediction was generated,API & CSV
+39,ACQUISITION_PREDICTIONS,growth_insight,The Growth Insight linked to this Acquisition Prediction.,API & CSV
+40,ACQUISITION_PREDICTIONS,identifier,Acquisition Prediction Title,API & CSV
+41,ACQUISITION_PREDICTIONS,key_employee_change,"There has been a change to the executive team's composition (hire, departure, or promotion)",API & CSV
+42,ACQUISITION_PREDICTIONS,key_leadership_hire,A new C-level Officer (CXO) was hired in the last 12 months,API & CSV
+43,ACQUISITION_PREDICTIONS,organization,Unique identifier for the organization associated with this acquisition prediction,API & CSV
+44,ACQUISITION_PREDICTIONS,partnership_announcement,A new strategic partnership occurred in the last 12 months,API & CSV
+45,ACQUISITION_PREDICTIONS,probability_score,The predicted probability that this Organization will be acquired,API & CSV
+46,ACQUISITION_PREDICTIONS,probability_score_timeseries,,API & CSV
+47,ACQUISITION_PREDICTIONS,probability_tier,The predicted probability of this organization getting acquired is divided into distinct tiers that quantify the likelihood of this event.,API & CSV
+48,ACQUISITION_PREDICTIONS,runway_speculation,"Approaching 18-24+ months since the last funding round, the need for capital may be more probable.",API & CSV
+49,ACQUISITION_PREDICTIONS,updated_at,Time of Update,API & CSV
+50,ACQUISITION_PREDICTIONS,uuid,UUID,API & CSV
+51,ADDRESSES,country_code,Country Code,API & CSV
+52,ADDRESSES,created_at,,API & CSV
+53,ADDRESSES,entity_def_id,,API & CSV
+54,ADDRESSES,headquartered_organization_identifier,Identifier of the organization that's headquartered on this address,API & CSV
+55,ADDRESSES,identifier,"Descriptive name of the Address (e.g. Headquarters, London Office)",API & CSV
+56,ADDRESSES,location_identifiers,"What city the address is located in (e.g. San Francisco, London, Kiev).",API & CSV
+57,ADDRESSES,name,"Descriptive name of the Address (e.g. Headquarters, London Office)",API & CSV
+58,ADDRESSES,opening_date,Date this location opened,API & CSV
+59,ADDRESSES,opening_description,Summary of context regarding opening of this address,API & CSV
+60,ADDRESSES,opening_press_reference_link,News article url mentioning the address opening,API & CSV
+61,ADDRESSES,organization,Organization with an office or headquarters at this address,API & CSV
+62,ADDRESSES,postal_code,The postal code of the address,API & CSV
+63,ADDRESSES,region_code,Region Code,API & CSV
+64,ADDRESSES,street_1,The street address of the location,API & CSV
+65,ADDRESSES,street_2,The street address of the location,API & CSV
+66,ADDRESSES,updated_at,,API & CSV
+67,ADDRESSES,uuid,,API & CSV
+68,AWARDS,created_at,,API & CSV
+69,AWARDS,description,Award description,API & CSV
+70,AWARDS,entity_def_id,Award,API & CSV
+71,AWARDS,identifier,Award name,API & CSV
+72,AWARDS,key_event_date,Date award presented or announced,API & CSV
+73,AWARDS,name,Award name,API & CSV
+74,AWARDS,organization,Organization that received the award,API & CSV
+75,AWARDS,press_reference_link,News article mentioning award,API & CSV
+76,AWARDS,sentiment,Sentiment associated with award,API & CSV
+77,AWARDS,updated_at,Date entity was updated,API & CSV
+78,AWARDS,uuid,Award entity UUID,API & CSV
+79,CATEGORIES,category_groups,"Superset of Industries (e.g. Software, Mobile, Health Care)",API & CSV
+80,CATEGORIES,created_at,,API & CSV
+81,CATEGORIES,entity_def_id,,API & CSV
+82,CATEGORIES,identifier,"Descriptive keyword for a Company (e.g. SaaS, Android, Cloud Computing, Medical Device)",API & CSV
+83,CATEGORIES,naics_code,,API & CSV
+84,CATEGORIES,name,Descriptive name of the Industry,API & CSV
+85,CATEGORIES,updated_at,,API & CSV
+86,CATEGORIES,uuid,,API & CSV
+87,CATEGORY_GROUPS,categories,"Descriptive keyword for an Organization (e.g. SaaS, Android, Cloud Computing, Medical Device)",API & CSV
+88,CATEGORY_GROUPS,created_at,,API & CSV
+89,CATEGORY_GROUPS,entity_def_id,,API & CSV
+90,CATEGORY_GROUPS,identifier,"Superset of Industries (e.g. Software, Mobile, Health Care)",API & CSV
+91,CATEGORY_GROUPS,name,Descriptive name of the Industry Group,API & CSV
+92,CATEGORY_GROUPS,updated_at,,API & CSV
+93,CATEGORY_GROUPS,uuid,,API & CSV
+94,CLOSURE_PREDICTIONS,addresses,,API & CSV
+95,CLOSURE_PREDICTIONS,awards,,API & CSV
+96,CLOSURE_PREDICTIONS,created_at,,API & CSV
+97,CLOSURE_PREDICTIONS,entity_def_id,,API & CSV
+98,CLOSURE_PREDICTIONS,generated_on,,API & CSV
+99,CLOSURE_PREDICTIONS,growth_insights,,API & CSV
+100,CLOSURE_PREDICTIONS,identifier,Closure Prediction identifier,API & CSV
+101,CLOSURE_PREDICTIONS,key_employee_changes,,API & CSV
+102,CLOSURE_PREDICTIONS,layoffs,,API & CSV
+103,CLOSURE_PREDICTIONS,legal_proceedings,,API & CSV
+104,CLOSURE_PREDICTIONS,media_sentiment,,API & CSV
+105,CLOSURE_PREDICTIONS,organization,,API & CSV
+106,CLOSURE_PREDICTIONS,partnership_announcements,,API & CSV
+107,CLOSURE_PREDICTIONS,probability_score,,API & CSV
+108,CLOSURE_PREDICTIONS,probability_score_timeseries,,API & CSV
+109,CLOSURE_PREDICTIONS,probability_tier,The predicted probability of this organization closing is divided into distinct tiers that quantify the likelihood of this event.,API & CSV
+110,CLOSURE_PREDICTIONS,product_launches,,API & CSV
+111,CLOSURE_PREDICTIONS,updated_at,,API & CSV
+112,CLOSURE_PREDICTIONS,uuid,,API & CSV
+113,DEGREES,completed_on,Date when the degree is completed,API & CSV
+114,DEGREES,created_at,,API & CSV
+115,DEGREES,entity_def_id,,API & CSV
+116,DEGREES,identifier,Name of the Degree,API & CSV
+117,DEGREES,name,,API & CSV
+118,DEGREES,person_identifier,The Person that received the Degree,API & CSV
+119,DEGREES,school_identifier,The School that awarded the Degree,API & CSV
+120,DEGREES,started_on,Date when the degree is started,API & CSV
+121,DEGREES,subject,The subject or major that the person focused his/her degree on,API & CSV
+122,DEGREES,type_name,The type of degree that the person received,API & CSV
+123,DEGREES,updated_at,,API & CSV
+124,DEGREES,uuid,,API & CSV
+125,DIVERSITY_SPOTLIGHTS,created_at,,API & CSV
+126,DIVERSITY_SPOTLIGHTS,entity_def_id,,API & CSV
+127,DIVERSITY_SPOTLIGHTS,facet_ids,,API & CSV
+128,DIVERSITY_SPOTLIGHTS,identifier,"Types of diversity represented in an organization, specifically of those who are founding members, currently the CEO, or have check-writing abilities in an investment firm. This feature is in beta and may change with future updates.",API & CSV
+129,DIVERSITY_SPOTLIGHTS,name,"Types of diversity represented in an organization, specifically of those who are founding members, currently the CEO, or have check-writing abilities in an investment firm. This feature is in beta and may change with future updates.",API & CSV
+130,DIVERSITY_SPOTLIGHTS,updated_at,,API & CSV
+131,DIVERSITY_SPOTLIGHTS,uuid,,API & CSV
+132,EVENTS,categories,"Descriptive keyword for a Company (e.g. SaaS, Android, Cloud Computing, Medical Device)",API & CSV
+133,EVENTS,category_groups,"Superset of Industries (e.g. Software, Mobile, Health Care)",API & CSV
+134,EVENTS,created_at,,API & CSV
+135,EVENTS,description,Text from Event's description,API & CSV
+136,EVENTS,ends_on,End date of the Event,API & CSV
+137,EVENTS,entity_def_id,,API & CSV
+138,EVENTS,event_type,"Type of Event (e.g. hackathon, meetup, conference)",API & CSV
+139,EVENTS,event_url,Link to main Event page,API & CSV
+140,EVENTS,facet_ids,,API & CSV
+141,EVENTS,identifier,Name of the Event,API & CSV
+142,EVENTS,image_id,The profile image of the event on Crunchbase,API & CSV
+143,EVENTS,image_url,The url of the profile image,API & CSV
+144,EVENTS,location_group_identifiers,"Regions of the Event (e.g. San Francisco Bay Area, Silicon Valley)",API & CSV
+145,EVENTS,location_identifiers,"Location of the Event (e.g. Japan, San Francisco, Europe, Asia)",API & CSV
+146,EVENTS,name,Event Name,API & CSV
+147,EVENTS,num_contestants,Total number of Contestants at the Event,API & CSV
+148,EVENTS,num_exhibitors,Total number of Exhibitors at the Event,API & CSV
+149,EVENTS,num_organizers,Total number of Organizers at the Event,API & CSV
+150,EVENTS,num_speakers,Total number of Speakers at the Event,API & CSV
+151,EVENTS,num_sponsors,Total number of Sponsors for the Event,API & CSV
+152,EVENTS,organizer_identifiers,The organizer of the Event,API & CSV
+153,EVENTS,permalink,,API & CSV
+154,EVENTS,permalink_aliases,These are the alternative aliases to the primary permalink of the Organization,API & CSV
+155,EVENTS,rank,Algorithmic rank assigned to the top profiles on Crunchbase,API & CSV
+156,EVENTS,rank_event,"Algorithmic rank assigned to the top 100,000 most active Events",API & CSV
+157,EVENTS,registration_url,Link to the Event registration page,API & CSV
+158,EVENTS,short_description,A short description of the Event,API & CSV
+159,EVENTS,starts_on,Start date of the Event,API & CSV
+160,EVENTS,updated_at,,API & CSV
+161,EVENTS,uuid,,API & CSV
+162,EVENTS,venue_name,Name of the Event venue,API & CSV
+163,EVENT_APPEARANCES,categories,"Descriptive keyword for a Company (e.g. SaaS, Android, Cloud Computing, Medical Device)",API & CSV
+164,EVENT_APPEARANCES,category_groups,"Superset of Industries (e.g. Software, Mobile, Health Care)",API & CSV
+165,EVENT_APPEARANCES,created_at,,API & CSV
+166,EVENT_APPEARANCES,description,Text from Event's description,API & CSV
+167,EVENT_APPEARANCES,ends_on,End date of the Event,API & CSV
+168,EVENT_APPEARANCES,event_type,"Type of Event (e.g. hackathon, meetup, conference)",API & CSV
+169,EVENT_APPEARANCES,event_url,Link to main Event page,API & CSV
+170,EVENT_APPEARANCES,identifier,Name of the Event,API & CSV
+171,EVENT_APPEARANCES,image_url,The url of the profile image,API & CSV
+172,EVENT_APPEARANCES,location_group_identifiers,"Regions of the Event (e.g. San Francisco Bay Area, Silicon Valley)",API & CSV
+173,EVENT_APPEARANCES,location_identifiers,"Location of the Event (e.g. Japan, San Francisco, Europe, Asia)",API & CSV
+174,EVENT_APPEARANCES,num_contestants,Total number of Contestants at the Event,API & CSV
+175,EVENT_APPEARANCES,num_exhibitors,Total number of Exhibitors at the Event,API & CSV
+176,EVENT_APPEARANCES,num_organizers,Total number of Organizers at the Event,API & CSV
+177,EVENT_APPEARANCES,num_speakers,Total number of Speakers at the Event,API & CSV
+178,EVENT_APPEARANCES,num_sponsors,Total number of Sponsors for the Event,API & CSV
+179,EVENT_APPEARANCES,organizer_identifiers,The organizer of the Event,API & CSV
+180,EVENT_APPEARANCES,permalink_aliases,These are the alternative aliases to the primary permalink of the Organization,API & CSV
+181,EVENT_APPEARANCES,rank_event,"Algorithmic rank assigned to the top 100,000 most active Events",API & CSV
+182,EVENT_APPEARANCES,registration_url,Link to the Event registration page,API & CSV
+183,EVENT_APPEARANCES,short_description,A short description of the Event,API & CSV
+184,EVENT_APPEARANCES,starts_on,Start date of the Event,API & CSV
+185,EVENT_APPEARANCES,updated_at,,API & CSV
+186,EVENT_APPEARANCES,venue_name,Name of the Event venue,API & CSV
+187,EVENT_APPEARANCES,appearance_type,"Describe how an Organization or a Person is participating in an Event (e.g. Speaker, Sponsor, etc.)",API & CSV
+188,EVENT_APPEARANCES,created_at,,API & CSV
+189,EVENT_APPEARANCES,entity_def_id,,API & CSV
+190,EVENT_APPEARANCES,event_identifier,Name of the Event,API & CSV
+191,EVENT_APPEARANCES,event_location_identifiers,"Location of the Event (e.g. Japan, San Francisco, Europe, Asia)",API & CSV
+192,EVENT_APPEARANCES,event_starts_on,Start date of the Event,API & CSV
+193,EVENT_APPEARANCES,identifier,Name of the Event Appearance,API & CSV
+194,EVENT_APPEARANCES,name,,API & CSV
+195,EVENT_APPEARANCES,participant_identifier,The name of the participant in an Event,API & CSV
+196,EVENT_APPEARANCES,permalink,,API & CSV
+197,EVENT_APPEARANCES,short_description,A short description of how a person or an organization is participant in an Event,API & CSV
+198,EVENT_APPEARANCES,updated_at,,API & CSV
+199,EVENT_APPEARANCES,uuid,,API & CSV
+200,FUNDS,announced_on,Date when a fund raised is announced,API & CSV
+201,FUNDS,created_at,,API & CSV
+202,FUNDS,entity_def_id,,API & CSV
+203,FUNDS,facet_ids,,API & CSV
+204,FUNDS,identifier,Name of the Fund,API & CSV
+205,FUNDS,image_id,,API & CSV
+206,FUNDS,investor_identifiers,,API & CSV
+207,FUNDS,money_raised,Amount raised by the Fund,API & CSV
+208,FUNDS,name,Name of the Fund,API & CSV
+209,FUNDS,num_investors,Total number of investment firms and individual investors,API & CSV
+210,FUNDS,owner_identifier,Name of the fund owner,API & CSV
+211,FUNDS,permalink,,API & CSV
+212,FUNDS,rank,Algorithmic rank assigned to the top profiles on Crunchbase,API & CSV
+213,FUNDS,short_description,A short description of the Fund,API & CSV
+214,FUNDS,started_on,Date when Fund Owner started invested the Fund,API & CSV
+215,FUNDS,updated_at,,API & CSV
+216,FUNDS,uuid,,API & CSV
+217,FUNDING_PREDICTIONS,created_at,Time of Creation,API & CSV
+218,FUNDING_PREDICTIONS,entity_def_id,Entity Def Type,API & CSV
+219,FUNDING_PREDICTIONS,example_funding_round,An example of a similar company in the same industry that had a Funding Round in the last 6 months,API & CSV
+220,FUNDING_PREDICTIONS,generated_on,Date on which this Funding Prediction was generated,API & CSV
+221,FUNDING_PREDICTIONS,growth_insight,The Growth Insight linked to this Funding Prediction.,API & CSV
+222,FUNDING_PREDICTIONS,identifier,Funding Prediction Title,API & CSV
+223,FUNDING_PREDICTIONS,key_employee_change,"There has been a change to the executive team's composition (hire, departure, or promotion)",API & CSV
+224,FUNDING_PREDICTIONS,key_leadership_hire,A new C-level Officer (CXO) was hired in the last 12 months,API & CSV
+225,FUNDING_PREDICTIONS,organization,Unique identifier for the organization associated with this funding prediction,API & CSV
+226,FUNDING_PREDICTIONS,partnership_announcement,A new strategic partnership occurred in the last 12 months,API & CSV
+227,FUNDING_PREDICTIONS,probability_score,The predicted probability that this Organization will receive funding,API & CSV
+228,FUNDING_PREDICTIONS,probability_score_timeseries,,API & CSV
+229,FUNDING_PREDICTIONS,probability_tier,The predicted probability of this organization raising funds is divided into distinct tiers that quantify the likelihood of this event.,API & CSV
+230,FUNDING_PREDICTIONS,product_launch,A new product or service was launched in the last 12 months,API & CSV
+231,FUNDING_PREDICTIONS,runway_speculation,"Approaching 18-24+ months since the last funding round, the need for capital may be more probable.",API & CSV
+232,FUNDING_PREDICTIONS,unicorn_status,Achieved unicorn status in the last 12 months,API & CSV
+233,FUNDING_PREDICTIONS,updated_at,Time of Update,API & CSV
+234,FUNDING_PREDICTIONS,uuid,UUID,API & CSV
+235,FUNDING_ROUNDS,announced_on,Date that the Funding Round was publicly announced,API & CSV
+236,FUNDING_ROUNDS,closed_on,Date that the Funding Round was closed,API & CSV
+237,FUNDING_ROUNDS,created_at,,API & CSV
+238,FUNDING_ROUNDS,entity_def_id,,API & CSV
+239,FUNDING_ROUNDS,facet_ids,,API & CSV
+240,FUNDING_ROUNDS,funded_organization_categories,Industries of the organization that got funded,API & CSV
+241,FUNDING_ROUNDS,funded_organization_description,Description of the organization that got funded,API & CSV
+242,FUNDING_ROUNDS,funded_organization_diversity_spotlights,"Types of diversity represented in an organization, specifically of those who are founding members, currently the CEO, or have check-writing abilities in an investment firm. This feature is in beta and may change with future updates.",API & CSV
+243,FUNDING_ROUNDS,funded_organization_funding_stage,Organization's most recent funding status,API & CSV
+244,FUNDING_ROUNDS,funded_organization_funding_total,Total funding amount raised across all Funding Rounds,API & CSV
+245,FUNDING_ROUNDS,funded_organization_identifier,Name of the organization that got funded,API & CSV
+246,FUNDING_ROUNDS,funded_organization_location,Location of the organization that got funded,API & CSV
+247,FUNDING_ROUNDS,funded_organization_revenue_range,Revenue range of the organization that got funded,API & CSV
+248,FUNDING_ROUNDS,identifier,Auto-generated name of transaction (e.g. Angel - Uber),API & CSV
+249,FUNDING_ROUNDS,image_id,,API & CSV
+250,FUNDING_ROUNDS,investment_stage,The funding stage of a funding round,API & CSV
+251,FUNDING_ROUNDS,investment_type,"Type of Funding Round (e.g. Seed, Series A, Private Equity, Debt Financing)",API & CSV
+252,FUNDING_ROUNDS,investor_identifiers,Names of all investors who invested in the funding round,API & CSV
+253,FUNDING_ROUNDS,is_equity,This indicates whether the Funding Round is financed only through equity.,API & CSV
+254,FUNDING_ROUNDS,lead_investor_identifiers,Name of the investor who led the investment in the funding round,API & CSV
+255,FUNDING_ROUNDS,money_raised,Amount of money raised in Funding Round,API & CSV
+256,FUNDING_ROUNDS,name,,API & CSV
+257,FUNDING_ROUNDS,num_investors,Total number of Investors in a Funding Round,API & CSV
+258,FUNDING_ROUNDS,num_partners,Total number of Partner Investors in a Funding Round,API & CSV
+259,FUNDING_ROUNDS,permalink,,API & CSV
+260,FUNDING_ROUNDS,post_money_valuation,Valuation of a Company after a Funding Round,API & CSV
+261,FUNDING_ROUNDS,pre_money_valuation,Valuation of a Company prior to a Funding Round,API & CSV
+262,FUNDING_ROUNDS,rank,Algorithmic rank assigned to the top profiles on Crunchbase,API & CSV
+263,FUNDING_ROUNDS,rank_funding_round,"Algorithmic rank assigned to the top 100,000 most active Funding Rounds",API & CSV
+264,FUNDING_ROUNDS,sentiment,Sentiment of news articles associated with a Funding Round,API & CSV
+265,FUNDING_ROUNDS,short_description,Short description of the Funding Round,API & CSV
+266,FUNDING_ROUNDS,target_money_raised,Amount of money the funded Organization would like to raised in the Funding Round,API & CSV
+267,FUNDING_ROUNDS,updated_at,,API & CSV
+268,FUNDING_ROUNDS,uuid,,API & CSV
+269,GROWTH_INSIGHTS,created_at,,API & CSV
+270,GROWTH_INSIGHTS,customers,Fluctuations in the number of customers or users,API & CSV
+271,GROWTH_INSIGHTS,description,A concise text statement highlighting the company's growth trajectory,API & CSV
+272,GROWTH_INSIGHTS,engagement,"Changes in product engagement levels, including increases or decreases in website traffic, app downloads, and user activity",API & CSV
+273,GROWTH_INSIGHTS,entity_def_id,Growth Insight,API & CSV
+274,GROWTH_INSIGHTS,finance,"Changes in key financial metrics including revenue, sales, earnings, profit margins, dividends, return on investment, stock performance, and commercial contracts",API & CSV
+275,GROWTH_INSIGHTS,funding_raised,"Activities related to financial investments, including receiving funding or making strategic investments into other organizations",API & CSV
+276,GROWTH_INSIGHTS,generated_on,Date on which this insight was generated,API & CSV
+277,GROWTH_INSIGHTS,growth_confidence,Assessment of the reliability and accuracy of the provided data,API & CSV
+278,GROWTH_INSIGHTS,growth_direction,Direction of the company's growth trajectory,API & CSV
+279,GROWTH_INSIGHTS,headcount,"Variations in employee numbers, including hiring sprees, layoffs, workforce expansions, and reductions",API & CSV
+280,GROWTH_INSIGHTS,identifier,Name of the Growth Insight,API & CSV
+281,GROWTH_INSIGHTS,market_share,"Changes in the company's market share, including growth through new market entries and decline due to market exits",API & CSV
+282,GROWTH_INSIGHTS,mergers_acquisitions,"Business consolidations involving mergers, acquisitions, or divestitures",API & CSV
+283,GROWTH_INSIGHTS,operations,"Modifications in operational footprints, including acquisitions or reductions of facilities, and regional expansions or contractions",API & CSV
+284,GROWTH_INSIGHTS,organization,Unique identifier for the organization associated with this growth insight,API & CSV
+285,GROWTH_INSIGHTS,outbound_investment,Records the company's financial investments into external entities or projects,API & CSV
+286,GROWTH_INSIGHTS,press_references,A list of the press references used to construct this growth insight,API & CSV
+287,GROWTH_INSIGHTS,updated_at,,API & CSV
+288,GROWTH_INSIGHTS,uuid,,API & CSV
+289,GROWTH_PREDICTIONS,awards,Awards,API & CSV
+290,GROWTH_PREDICTIONS,created_at,Time of Creation,API & CSV
+291,GROWTH_PREDICTIONS,entity_def_id,Growth Prediction,API & CSV
+292,GROWTH_PREDICTIONS,example_funding_round,An example of a similar company in the same industry that had a Funding Round in the last 6 months,API & CSV
+293,GROWTH_PREDICTIONS,generated_on,Date on which this Growth Prediction was generated,API & CSV
+294,GROWTH_PREDICTIONS,growth_insight,The Growth Insight linked to this Growth Prediction.,API & CSV
+295,GROWTH_PREDICTIONS,identifier,Growth Prediction Title,API & CSV
+296,GROWTH_PREDICTIONS,key_employee_changes,"There has been a change to the executive team's composition (hire, departure, or promotion)",API & CSV
+297,GROWTH_PREDICTIONS,key_leadership_hires,A new C-level Officer (CXO) was hired in the last 12 months,API & CSV
+298,GROWTH_PREDICTIONS,layoffs,Layoffs,API & CSV
+299,GROWTH_PREDICTIONS,legal_proceedings,"Proceedings relating to law, regulation, or compliance",API & CSV
+300,GROWTH_PREDICTIONS,new_offices,New Offices,API & CSV
+301,GROWTH_PREDICTIONS,organization,Unique identifier for the organization associated with this growth prediction,API & CSV
+302,GROWTH_PREDICTIONS,partnership_announcements,A new strategic partnership occurred in the last 12 months,API & CSV
+303,GROWTH_PREDICTIONS,probability_score,The predicted probability that this organization will exhibit growth,API & CSV
+304,GROWTH_PREDICTIONS,probability_tier,"The predicted probability of this organization growing, divided into distinct tiers that quantify the likelihood.",API & CSV
+305,GROWTH_PREDICTIONS,product_launches,A new product or service was launched in the last 12 months,API & CSV
+306,GROWTH_PREDICTIONS,runway_speculation,"Approaching 18-24+ months since the last funding round, the need for capital may be more probable.",API & CSV
+307,GROWTH_PREDICTIONS,similar_company_acquired,Similar Company Acquired,API & CSV
+308,GROWTH_PREDICTIONS,similar_company_went_public,Similar Company Went Public,API & CSV
+309,GROWTH_PREDICTIONS,unicorn_status,Achieved unicorn status in the last 12 months,API & CSV
+310,GROWTH_PREDICTIONS,updated_at,Time of Update,API & CSV
+311,GROWTH_PREDICTIONS,uuid,UUID,API & CSV
+312,INVESTMENTS,announced_on,Date when the Investment is announced,API & CSV
+313,INVESTMENTS,created_at,,API & CSV
+314,INVESTMENTS,entity_def_id,,API & CSV
+315,INVESTMENTS,funding_round_identifier,Name of the funding round where the Investment is made,API & CSV
+316,INVESTMENTS,funding_round_investment_type,"Type of Funding Round where the Investment is made (e.g. Seed, Series A, Private Equity, Debt Financing)",API & CSV
+317,INVESTMENTS,funding_round_money_raised,Amount of money raised in Funding Round,API & CSV
+318,INVESTMENTS,identifier,Name of the Investment,API & CSV
+319,INVESTMENTS,investor_identifier,Name of the investor who participated in the Investment,API & CSV
+320,INVESTMENTS,investor_stage,"This describes the stage of investor this organization or person is (e.g. Angel, Fund of Funds, Venture Capital)",API & CSV
+321,INVESTMENTS,investor_type,"This describes the type of investor this organization or person is (e.g. Angel, Fund of Funds, Venture Capital)",API & CSV
+322,INVESTMENTS,is_lead_investor,This field indicates whether an investor led/organized the investment,API & CSV
+323,INVESTMENTS,money_invested,Amount of money an Investor contributed into an investment,API & CSV
+324,INVESTMENTS,name,,API & CSV
+325,INVESTMENTS,organization_diversity_spotlights,"Types of diversity represented in an organization, specifically of those who are founding members, currently the CEO, or have check-writing abilities in an investment firm. This feature is in beta and may change with future updates.",API & CSV
+326,INVESTMENTS,organization_identifier,Name of the organization that received the investment,API & CSV
+327,INVESTMENTS,partner_identifiers,Name of the individual who led a funding round for his/her firm,API & CSV
+328,INVESTMENTS,permalink,,API & CSV
+329,INVESTMENTS,updated_at,,API & CSV
+330,INVESTMENTS,uuid,,API & CSV
+331,INVESTOR_INSIGHTS,associated_investments_since,Associated investments since,API & CSV
+332,INVESTOR_INSIGHTS,categories,Investment categories,API & CSV
+333,INVESTOR_INSIGHTS,created_at,,API & CSV
+334,INVESTOR_INSIGHTS,description,A concise text statement highlighting the investor insight,API & CSV
+335,INVESTOR_INSIGHTS,diversity_investments,Diversity investments,API & CSV
+336,INVESTOR_INSIGHTS,entity_def_id,Investor Insight,API & CSV
+337,INVESTOR_INSIGHTS,exit_success_rate,Exit success rate,API & CSV
+338,INVESTOR_INSIGHTS,generated_on,Date on which this insight was generated,API & CSV
+339,INVESTOR_INSIGHTS,identifier,Name of the Investor Insight,API & CSV
+340,INVESTOR_INSIGHTS,investment_funding_stage,Investment funding stage,API & CSV
+341,INVESTOR_INSIGHTS,investment_types,Investment types,API & CSV
+342,INVESTOR_INSIGHTS,lead_investor_rate,Lead investor rate,API & CSV
+343,INVESTOR_INSIGHTS,locations,Investment locations,API & CSV
+344,INVESTOR_INSIGHTS,median_investment_size,Median investment size,API & CSV
+345,INVESTOR_INSIGHTS,organization,Unique identifier for the organization associated with this investor insight,API & CSV
+346,INVESTOR_INSIGHTS,stages,Investment stages,API & CSV
+347,INVESTOR_INSIGHTS,updated_at,,API & CSV
+348,INVESTOR_INSIGHTS,uuid,,API & CSV
+349,INVESTOR_MATCHES,created_at,Time of creation,API & CSV
+350,INVESTOR_MATCHES,entity_def_id,Entity Def Type,API & CSV
+351,INVESTOR_MATCHES,identifier,Investor Match Title,API & CSV
+352,INVESTOR_MATCHES,investor,Unique identifier for the investor associated with this funding prediction,API & CSV
+353,INVESTOR_MATCHES,local_rank,Ranking indicating the strength of the investor match,API & CSV
+354,INVESTOR_MATCHES,organization,Unique identifier for the organization associated with this investor match,API & CSV
+355,INVESTOR_MATCHES,updated_at,Time of Update,API & CSV
+356,INVESTOR_MATCHES,uuid,UUID,API & CSV
+357,IPOS,amount_raised,Total amount raised from the IPO,API & CSV
+358,IPOS,created_at,,API & CSV
+359,IPOS,delisted_on,Date when the organization delisted its stock,API & CSV
+360,IPOS,entity_def_id,,API & CSV
+361,IPOS,facet_ids,,API & CSV
+362,IPOS,identifier,"Stock ticker symbol (e.g. AAPL, FB, TWTR)",API & CSV
+363,IPOS,image_id,,API & CSV
+364,IPOS,organization_identifier,Organization went public,API & CSV
+365,IPOS,permalink,,API & CSV
+366,IPOS,rank,Algorithmic rank assigned to the top profiles on Crunchbase,API & CSV
+367,IPOS,rank_ipo,"Algorithmic rank assigned to the top 100,000 most active IPOs",API & CSV
+368,IPOS,sentiment,Sentiment associated with IPO,API & CSV
+369,IPOS,share_price,The share price for the stock at the time of IPO,API & CSV
+370,IPOS,shares_outstanding,Number of shares that were outstanding at the time of IPO,API & CSV
+371,IPOS,shares_sold,Number of shares sold at the time of IPO,API & CSV
+372,IPOS,short_description,,API & CSV
+373,IPOS,stock_exchange_symbol,"Stock exchange where the Organization is listed (e.g. NYSE, NASDAQ)",API & CSV
+374,IPOS,stock_full_symbol,,API & CSV
+375,IPOS,stock_symbol,"Stock ticker symbol (e.g. AAPL, FB, TWTR)",API & CSV
+376,IPOS,updated_at,,API & CSV
+377,IPOS,uuid,,API & CSV
+378,IPOS,valuation,Valuation of the Organization at IPO,API & CSV
+379,IPOS,went_public_on,Date the Organization went public,API & CSV
+380,IPO_PREDICTIONS,created_at,Time of Creation,API & CSV
+381,IPO_PREDICTIONS,entity_def_id,Entity Def Type,API & CSV
+382,IPO_PREDICTIONS,example_funding_round,An example of a similar company in the same industry that had a Funding Round in the last 6 months,API & CSV
+383,IPO_PREDICTIONS,example_ipo,An example of a similar company in the same industry that had an IPO in the last 6 months,API & CSV
+384,IPO_PREDICTIONS,generated_on,Date on which this IPO Prediction was generated,API & CSV
+385,IPO_PREDICTIONS,growth_insight,The Growth Insight linked to this IPO Prediction.,API & CSV
+386,IPO_PREDICTIONS,identifier,IPO Prediction Title,API & CSV
+387,IPO_PREDICTIONS,key_employee_change,"There has been a change to the executive team's composition (hire, departure, or promotion)",API & CSV
+388,IPO_PREDICTIONS,key_leadership_hire,A new C-level Officer (CXO) was hired in the last 12 months,API & CSV
+389,IPO_PREDICTIONS,media_sentiment,A sudden increase in media coverage with positive sentiment in the last 12 months,API & CSV
+390,IPO_PREDICTIONS,organization,Unique identifier for the organization associated with this IPO prediction,API & CSV
+391,IPO_PREDICTIONS,probability_score,The predicted probability that this Organization will IPO,API & CSV
+392,IPO_PREDICTIONS,probability_score_timeseries,,API & CSV
+393,IPO_PREDICTIONS,probability_tier,The predicted probability of an IPO for this organization is divided into distinct tiers that quantify the likelihood of this event.,API & CSV
+394,IPO_PREDICTIONS,unicorn_status,Achieved unicorn status in the last 12 months,API & CSV
+395,IPO_PREDICTIONS,updated_at,Time of Update,API & CSV
+396,IPO_PREDICTIONS,uuid,UUID,API & CSV
+397,JOBS,created_at,,API & CSV
+398,JOBS,employee_featured_order,These are the featured employees of an organization,API & CSV
+399,JOBS,ended_on,End date of the Person's Job,API & CSV
+400,JOBS,entity_def_id,,API & CSV
+401,JOBS,identifier,"Position name field (e.g. Steve Jobs, Founder @ Pixar)",API & CSV
+402,JOBS,is_current,This indicates whether the Job is current or not,API & CSV
+403,JOBS,job_type,Select a job type that best represent your role at the organization,API & CSV
+404,JOBS,name,,API & CSV
+405,JOBS,organization_identifier,This is the name of the organization,API & CSV
+406,JOBS,permalink,,API & CSV
+407,JOBS,person_identifier,First and last name of a Person,API & CSV
+408,JOBS,short_description,Text of Job Description,API & CSV
+409,JOBS,started_on,Start date of the Person's Job,API & CSV
+410,JOBS,title,Title of a Person's Job,API & CSV
+411,JOBS,updated_at,,API & CSV
+412,JOBS,uuid,,API & CSV
+413,KEY_EMPLOYEE_CHANGES,created_at,Time of Creation,API & CSV
+414,KEY_EMPLOYEE_CHANGES,description,Description of the event,API & CSV
+415,KEY_EMPLOYEE_CHANGES,entity_def_id,Entity Def Type,API & CSV
+416,KEY_EMPLOYEE_CHANGES,identifier,Key employee change identifier,API & CSV
+417,KEY_EMPLOYEE_CHANGES,key_event_date,Date when the news article was posted,API & CSV
+418,KEY_EMPLOYEE_CHANGES,organization_identifier,Organization that had a key employee change mentioned,API & CSV
+419,KEY_EMPLOYEE_CHANGES,press_reference_link,Title of the news article,API & CSV
+420,KEY_EMPLOYEE_CHANGES,sentiment,Sentiment associated with key employee change,API & CSV
+421,KEY_EMPLOYEE_CHANGES,updated_at,Time of Update,API & CSV
+422,KEY_EMPLOYEE_CHANGES,uuid,UUID,API & CSV
+423,LAYOFFS,created_at,Laoyff entity creation date,API & CSV
+424,LAYOFFS,entity_def_id,Layoff Signal,API & CSV
+425,LAYOFFS,identifier,Layoff identifier,API & CSV
+426,LAYOFFS,key_event_date,Date when the news article was posted,API & CSV
+427,LAYOFFS,organization_identifier,Organization that had a layoff mentioned,API & CSV
+428,LAYOFFS,press_reference_link,Title of the news article,API & CSV
+429,LAYOFFS,sentiment,Sentiment of the news article(s) that mention this layoff,API & CSV
+430,LAYOFFS,updated_at,Entity Updating date,API & CSV
+431,LAYOFFS,uuid,Entity UUID,API & CSV
+432,LAYOFF_PREDICTIONS,awards,Awards & Recognition,API & CSV
+433,LAYOFF_PREDICTIONS,created_at,,API & CSV
+434,LAYOFF_PREDICTIONS,entity_def_id,,API & CSV
+435,LAYOFF_PREDICTIONS,example_funding_round,Similar Funding Event,API & CSV
+436,LAYOFF_PREDICTIONS,generated_on,,API & CSV
+437,LAYOFF_PREDICTIONS,growth_insights,Growth Insights,API & CSV
+438,LAYOFF_PREDICTIONS,identifier,Layoff prediction identifier,API & CSV
+439,LAYOFF_PREDICTIONS,key_employee_changes,"There has been a change to the executive team's composition (hire, departure, or promotion)",API & CSV
+440,LAYOFF_PREDICTIONS,key_leadership_hires,Leadership Hires,API & CSV
+441,LAYOFF_PREDICTIONS,layoffs,Layoffs,API & CSV
+442,LAYOFF_PREDICTIONS,legal_proceedings,Legal Proceedings,API & CSV
+443,LAYOFF_PREDICTIONS,new_offices,New Offices,API & CSV
+444,LAYOFF_PREDICTIONS,organization,,API & CSV
+445,LAYOFF_PREDICTIONS,partnership_announcements,Partnership Announcements,API & CSV
+446,LAYOFF_PREDICTIONS,probability_score,,API & CSV
+447,LAYOFF_PREDICTIONS,probability_tier,The predicted probability of this organization experiencing a layoff is divided into distinct tiers that quantify the likelihood of this event.,API & CSV
+448,LAYOFF_PREDICTIONS,product_launches,Product Launches,API & CSV
+449,LAYOFF_PREDICTIONS,runway_speculation,Runway Speculation,API & CSV
+450,LAYOFF_PREDICTIONS,updated_at,,API & CSV
+451,LAYOFF_PREDICTIONS,uuid,,API & CSV
+452,LEGAL_PROCEEDINGS,created_at,,API & CSV
+453,LEGAL_PROCEEDINGS,description,Description of legal proceeding,API & CSV
+454,LEGAL_PROCEEDINGS,entity_def_id,"Proceedings relating to law, regulation, or compliance",API & CSV
+455,LEGAL_PROCEEDINGS,identifier,Legal proceeding name,API & CSV
+456,LEGAL_PROCEEDINGS,key_event_date,Date of proceeding or when expected,API & CSV
+457,LEGAL_PROCEEDINGS,name,Legal proceeding name,API & CSV
+458,LEGAL_PROCEEDINGS,organization,Organization undergoing legal proceeding,API & CSV
+459,LEGAL_PROCEEDINGS,press_reference_link,News article mentioning legal proceeding,API & CSV
+460,LEGAL_PROCEEDINGS,proceeding_type,The type of proceeding,API & CSV
+461,LEGAL_PROCEEDINGS,sentiment,Sentiment associated with proceeding,API & CSV
+462,LEGAL_PROCEEDINGS,updated_at,Date entity was updated,API & CSV
+463,LEGAL_PROCEEDINGS,uuid,UUID of legal proceeding entity,API & CSV
+464,LOCATIONS,country_code,"Short alphabetic or numeric geographical codes that represent countries (e.g. TWN, USA, ZAF)",API & CSV
+465,LOCATIONS,country_code_ext,,API & CSV
+466,LOCATIONS,created_at,Created At,API & CSV
+467,LOCATIONS,entity_def_id,,API & CSV
+468,LOCATIONS,facet_ids,"Type of location (e.g. City, Continent, Regional Area)",API & CSV
+469,LOCATIONS,groups,"Regional areas this location belongs to (e.g. San Francisco Bay Area, Silicon Valley)",API & CSV
+470,LOCATIONS,identifier,"Short location name (e.g. Japan, San Francisco, Europe)",API & CSV
+471,LOCATIONS,location_type,"Type of location (e.g. City, Continent, Regional Area)",API & CSV
+472,LOCATIONS,locations,"Full location name (e.g. Denver, Colorado, United States, North America)",API & CSV
+473,LOCATIONS,name,,API & CSV
+474,LOCATIONS,permalink,,API & CSV
+475,LOCATIONS,permalink_aliases,These are the alternative aliases to the primary permalink of the Organization,API & CSV
+476,LOCATIONS,region_code,Region code used to define location,API & CSV
+477,LOCATIONS,short_description,Description,API & CSV
+478,LOCATIONS,updated_at,Updated At,API & CSV
+479,LOCATIONS,uuid,,API & CSV
+480,MICRO_CATEGORIES,categories,Industries containing this Micro-Industry,API & CSV
+481,MICRO_CATEGORIES,created_at,,API & CSV
+482,MICRO_CATEGORIES,entity_def_id,,API & CSV
+483,MICRO_CATEGORIES,identifier,"Descriptive name for the Micro-Industry (e.g. Agentic AI, Online Bill Payment Services, Secure Document Destruction Services)",API & CSV
+484,MICRO_CATEGORIES,name,Descriptive name of the Micro-Industry,API & CSV
+485,MICRO_CATEGORIES,updated_at,,API & CSV
+486,MICRO_CATEGORIES,uuid,,API & CSV
+487,ORG_SIMILARITIES,additional_reasons,,API & CSV
+488,ORG_SIMILARITIES,category_overlap,Shared Industries,API & CSV
+489,ORG_SIMILARITIES,created_at,Created At,API & CSV
+490,ORG_SIMILARITIES,entity_def_id,,API & CSV
+491,ORG_SIMILARITIES,identifier,Organization Similarity,API & CSV
+492,ORG_SIMILARITIES,location_overlap,,API & CSV
+493,ORG_SIMILARITIES,product_similarities,Product Similarities,API & CSV
+494,ORG_SIMILARITIES,score,,API & CSV
+495,ORG_SIMILARITIES,source,,API & CSV
+496,ORG_SIMILARITIES,target,,API & CSV
+497,ORG_SIMILARITIES,updated_at,Updated At,API & CSV
+498,ORG_SIMILARITIES,uuid,,API & CSV
+499,ORGANIZATIONS,acquirer_identifier,Name of the organization that made the acquisition,API & CSV
+500,ORGANIZATIONS,aliases,Alternate or previous names for the organization,API & CSV
+501,ORGANIZATIONS,categories,"Descriptive keyword for an Organization (e.g. SaaS, Android, Cloud Computing, Medical Device)",API & CSV
+502,ORGANIZATIONS,category_groups,"Superset of Industries (e.g. Software, Mobile, Health Care)",API & CSV
+503,ORGANIZATIONS,closed_on,The date when the organization is closed,API & CSV
+504,ORGANIZATIONS,company_type,Whether an Organization is for profit or non-profit,API & CSV
+505,ORGANIZATIONS,contact_email,General contact email for the organization,API & CSV
+506,ORGANIZATIONS,created_at,,API & CSV
+507,ORGANIZATIONS,delisted_on,The date when the Organization removed its stock from the stock exchange.,API & CSV
+508,ORGANIZATIONS,demo_days,Whether an accelerator hosts any demo days,API & CSV
+509,ORGANIZATIONS,description,"Organization Description, Industries, Industry Groups",API & CSV
+510,ORGANIZATIONS,diversity_spotlights,"Types of diversity represented in an organization, specifically of those who are founding members, currently the CEO, or have check-writing abilities in an investment firm. This feature is in beta and may change with future updates.",API & CSV
+511,ORGANIZATIONS,entity_def_id,,API & CSV
+512,ORGANIZATIONS,equity_funding_total,Total funding amount raised across all Funding Rounds excluding debt,API & CSV
+513,ORGANIZATIONS,exited_on,Date the organization was acquired or went public,API & CSV
+514,ORGANIZATIONS,facebook,Link to Organization's Facebook page,API & CSV
+515,ORGANIZATIONS,facet_ids,,API & CSV
+516,ORGANIZATIONS,founded_on,Date the Organization was founded,API & CSV
+517,ORGANIZATIONS,founder_identifiers,Founders of the organization,API & CSV
+518,ORGANIZATIONS,funding_stage,"This field describes an organization's most recent funding status (e.g. Early Stage Venture, Late Stage Venture, M&A)",API & CSV
+519,ORGANIZATIONS,funding_total,Total amount raised across all funding rounds,API & CSV
+520,ORGANIZATIONS,funds_total,Total funding amount raised across all Fund Raises,API & CSV
+521,ORGANIZATIONS,growth_insight_confidence,Confidence level associated with this company's growth status,API & CSV
+522,ORGANIZATIONS,growth_insight_direction,,API & CSV
+523,ORGANIZATIONS,growth_score,Current Growth Score,API & CSV
+524,ORGANIZATIONS,growth_score_delta_d90,Change in Growth Score over the past 90 days,API & CSV
+525,ORGANIZATIONS,heat_score,Current Heat Score,API & CSV
+526,ORGANIZATIONS,heat_score_delta_d90,Change in Heat Score over the past 90 days,API & CSV
+527,ORGANIZATIONS,hub_tags,"Tags are labels assigned to organizations, which identify their belonging to a group with that shared label",API & CSV
+528,ORGANIZATIONS,identifier,Name of the Organization,API & CSV
+529,ORGANIZATIONS,image_id,The profile image of the organization on Crunchbase,API & CSV
+530,ORGANIZATIONS,image_url,The url of the profile image,API & CSV
+531,ORGANIZATIONS,investor_identifiers,"The top 5 investors with investments in this company, ordered by Crunchbase Rank",API & CSV
+532,ORGANIZATIONS,investor_stage,"This describes the stage of investments made by this organization (e.g. Angel, Fund of Funds, Venture Capital)",API & CSV
+533,ORGANIZATIONS,investor_type,"This describes the type of investor this organization is (e.g. Angel, Fund of Funds, Venture Capital)",API & CSV
+534,ORGANIZATIONS,ipo_status,The current public status of the Organization,API & CSV
+535,ORGANIZATIONS,last_equity_funding_total,Amount of most recent Funding Round excluding debt,API & CSV
+536,ORGANIZATIONS,last_equity_funding_type,The most recent Funding Round excluding debt,API & CSV
+537,ORGANIZATIONS,last_funding_at,Date of most recent Funding Round,API & CSV
+538,ORGANIZATIONS,last_funding_total,Amount of most recent Funding Round,API & CSV
+539,ORGANIZATIONS,last_funding_type,"Last funding round type (e.g. Seed, Series A, Private Equity)",API & CSV
+540,ORGANIZATIONS,last_key_employee_change_date,See companies that have hired executives (VP and above) in a certain date range,API & CSV
+541,ORGANIZATIONS,last_layoff_date,Date of last layoff event,API & CSV
+542,ORGANIZATIONS,layout_id,This is the auto-generated layout for the profile,API & CSV
+543,ORGANIZATIONS,legal_name,The legal name of the organization,API & CSV
+544,ORGANIZATIONS,linkedin,Link to Organization's LinkedIn page,API & CSV
+545,ORGANIZATIONS,listed_stock_symbol,"Stock ticker symbol (e.g. AAPL, FB, TWTR)",API & CSV
+546,ORGANIZATIONS,location_group_identifiers,"Where the organization is headquartered (e.g. San Francisco Bay Area, Silicon Valley)",API & CSV
+547,ORGANIZATIONS,location_identifiers,Where the organization is headquartered,API & CSV
+548,ORGANIZATIONS,micro_categories,Micro industries associated with this Organization,API & CSV
+549,ORGANIZATIONS,name,,API & CSV
+550,ORGANIZATIONS,num_acquisitions,Total number of Acquisitions,API & CSV
+551,ORGANIZATIONS,num_alumni,Total number of alumni,API & CSV
+552,ORGANIZATIONS,num_articles,Number of news articles that reference the Organization,API & CSV
+553,ORGANIZATIONS,num_current_advisor_positions,Total number of board member and advisor profiles an organization has on Crunchbase,API & CSV
+554,ORGANIZATIONS,num_current_positions,Total number of employee profiles an organization has on Crunchbase,API & CSV
+555,ORGANIZATIONS,num_diversity_spotlight_investments,Total number of diversity investments made by an investor,API & CSV
+556,ORGANIZATIONS,num_employees_enum,Total number of employees,API & CSV
+557,ORGANIZATIONS,num_enrollments,Total number of Enrollments,API & CSV
+558,ORGANIZATIONS,num_event_appearances,Total number of events an Organization appeared in,API & CSV
+559,ORGANIZATIONS,num_exits,Total number of Exits,API & CSV
+560,ORGANIZATIONS,num_exits_ipo,Total number of Exits (IPO),API & CSV
+561,ORGANIZATIONS,num_founder_alumni,Total number of Alumni that are Founders,API & CSV
+562,ORGANIZATIONS,num_founders,Total number of Founders,API & CSV
+563,ORGANIZATIONS,num_funding_rounds,Total number of Funding Rounds,API & CSV
+564,ORGANIZATIONS,num_funds,Total number of Funds raised,API & CSV
+565,ORGANIZATIONS,num_investments,Total number of Investments made,API & CSV
+566,ORGANIZATIONS,num_investors,Total number of investment firms and individual investors,API & CSV
+567,ORGANIZATIONS,num_lead_investments,Total number of Lead Investments made,API & CSV
+568,ORGANIZATIONS,num_lead_investors,Total number of lead investment firms and individual investors,API & CSV
+569,ORGANIZATIONS,num_past_positions,Total number of past employee profiles of an organization,API & CSV
+570,ORGANIZATIONS,num_portfolio_organizations,Total number of portfolio organizations,API & CSV
+571,ORGANIZATIONS,num_sub_organizations,Total number of sub-organizations that belongs to a parent Organization,API & CSV
+572,ORGANIZATIONS,operating_status,"Operating Status of Organization e.g. Active, Closed",API & CSV
+573,ORGANIZATIONS,owner_identifier,This is the parent Organization of the sub-organization,API & CSV
+574,ORGANIZATIONS,permalink,,API & CSV
+575,ORGANIZATIONS,permalink_aliases,These are the alternative aliases to the primary permalink of the Organization,API & CSV
+576,ORGANIZATIONS,phone_number,Organization's general phone number,API & CSV
+577,ORGANIZATIONS,program_application_deadline,The deadline for applying to the Accelerator Program,API & CSV
+578,ORGANIZATIONS,program_duration,The duration of the Acceleration Program in number of weeks,API & CSV
+579,ORGANIZATIONS,program_type,"The type of Accelerator Program (e.g. On-Site, Online)",API & CSV
+580,ORGANIZATIONS,rank,Algorithmic rank assigned to the top profiles on Crunchbase,API & CSV
+581,ORGANIZATIONS,rank_delta_d30,Movement in Rank over the last 30 days using a score from -10 to 10,API & CSV
+582,ORGANIZATIONS,rank_delta_d7,Movement in Rank over the last 7 days using a score from -10 to 10,API & CSV
+583,ORGANIZATIONS,rank_delta_d90,Movement in Rank over the last 90 days using a score from -10 to 10,API & CSV
+584,ORGANIZATIONS,rank_org,"Algorithmic rank assigned to the top 100,000 most active Organizations",API & CSV
+585,ORGANIZATIONS,revenue_range,Estimated revenue range for organization,API & CSV
+586,ORGANIZATIONS,school_method,"The type of School Method (e.g. On Campus, Online)",API & CSV
+587,ORGANIZATIONS,school_program,"The type of School Program (e.g. Bootcamp, Four Year University)",API & CSV
+588,ORGANIZATIONS,school_type,The type of school,API & CSV
+589,ORGANIZATIONS,short_description,"Text of Organization Description, Industries, and Industry Groups",API & CSV
+590,ORGANIZATIONS,status,"Status of Organization e.g. Operating, Closed, Acquired, IPO",API & CSV
+591,ORGANIZATIONS,stock_exchange_symbol,"Stock exchange where the Organization is listed e.g. NYSE, NASDAQ",API & CSV
+592,ORGANIZATIONS,stock_symbol,"Stock ticker symbol (e.g. AAPL, FB, TWTR)",API & CSV
+593,ORGANIZATIONS,twitter,Link to an organization's X page,API & CSV
+594,ORGANIZATIONS,updated_at,,API & CSV
+595,ORGANIZATIONS,uuid,,API & CSV
+596,ORGANIZATIONS,valuation,Latest post money valuation of organization,API & CSV
+597,ORGANIZATIONS,valuation_date,Date of latest post money valuation,API & CSV
+598,ORGANIZATIONS,website,Link to homepage,API & CSV
+599,ORGANIZATIONS,website_url,Link to homepage,API & CSV
+600,ORGANIZATIONS,went_public_on,The date when the Organization went public,API & CSV
+601,OWNERSHIPS,created_at,,API & CSV
+602,OWNERSHIPS,entity_def_id,,API & CSV
+603,OWNERSHIPS,facet_ids,,API & CSV
+604,OWNERSHIPS,identifier,Short description of the ownership (e.g. Google owns YouTube),API & CSV
+605,OWNERSHIPS,name,,API & CSV
+606,OWNERSHIPS,ownee_identifier,Name of the sub-organization that is related to a parent organization,API & CSV
+607,OWNERSHIPS,owner_identifier,Name of the organization that has sub-organizations,API & CSV
+608,OWNERSHIPS,ownership_type,This is the relationship defining how a sub-organization is related to a parent organization,API & CSV
+609,OWNERSHIPS,permalink,,API & CSV
+610,OWNERSHIPS,rank,Algorithmic rank assigned to the top profiles on Crunchbase,API & CSV
+611,OWNERSHIPS,updated_at,,API & CSV
+612,OWNERSHIPS,uuid,,API & CSV
+613,PARTNERSHIP_ANNOUNCEMENTS,created_at,Time of Creation,API & CSV
+614,PARTNERSHIP_ANNOUNCEMENTS,description,Brief context summary,API & CSV
+615,PARTNERSHIP_ANNOUNCEMENTS,entity_def_id,Entity Def Type,API & CSV
+616,PARTNERSHIP_ANNOUNCEMENTS,identifier,Partnership announcement identifier,API & CSV
+617,PARTNERSHIP_ANNOUNCEMENTS,key_event_date,Date when the news article was posted,API & CSV
+618,PARTNERSHIP_ANNOUNCEMENTS,organization,Organization that had a partnership announcement mentioned,API & CSV
+619,PARTNERSHIP_ANNOUNCEMENTS,press_reference_link,Title of the news article,API & CSV
+620,PARTNERSHIP_ANNOUNCEMENTS,sentiment,Sentiment of the news article(s) that mention this partnership announcement,API & CSV
+621,PARTNERSHIP_ANNOUNCEMENTS,updated_at,Time of Update,API & CSV
+622,PARTNERSHIP_ANNOUNCEMENTS,uuid,UUID,API & CSV
+623,PEOPLE,aliases,Alternate or previous names for the individual,API & CSV
+624,PEOPLE,born_on,The birthdate of the person,API & CSV
+625,PEOPLE,created_at,,API & CSV
+626,PEOPLE,description,Text from a Person's biography,API & CSV
+627,PEOPLE,died_on,The date when a person died,API & CSV
+628,PEOPLE,entity_def_id,,API & CSV
+629,PEOPLE,facebook,Link to a Person's Facebook page,API & CSV
+630,PEOPLE,facet_ids,,API & CSV
+631,PEOPLE,first_name,First name of a Person,API & CSV
+632,PEOPLE,gender,A Person's gender,API & CSV
+633,PEOPLE,identifier,First and last name of a Person,API & CSV
+634,PEOPLE,image_id,The profile image of the person on Crunchbase,API & CSV
+635,PEOPLE,image_url,The url of the profile image,API & CSV
+636,PEOPLE,investor_stage,"This describes the stage of investor this person is (e.g. Angel, Fund of Funds, Venture Capital)",API & CSV
+637,PEOPLE,investor_type,"This describes the type of investor the person is (e.g. Angel, Fund of Funds, Venture Capital)",API & CSV
+638,PEOPLE,last_name,Last name of a Person,API & CSV
+639,PEOPLE,layout_id,This is the auto-generated layout for the profile,API & CSV
+640,PEOPLE,linkedin,Link to a Person's LinkedIn page,API & CSV
+641,PEOPLE,location_group_identifiers,"Where the person is located (e.g. San Francisco Bay Area, Silicon Valley)",API & CSV
+642,PEOPLE,location_identifiers,"Where the person is located (e.g. Europe, Menlo Park, China)",API & CSV
+643,PEOPLE,middle_name,Middle name of a Person,API & CSV
+644,PEOPLE,name,Full name of a Person,API & CSV
+645,PEOPLE,num_articles,Number of news articles that reference the Person,API & CSV
+646,PEOPLE,num_current_advisor_jobs,Total number of current Advisors and Board roles the person has,API & CSV
+647,PEOPLE,num_current_jobs,Total number of current Jobs the person has,API & CSV
+648,PEOPLE,num_diversity_spotlight_investments,Total number of diversity investments made by an investor,API & CSV
+649,PEOPLE,num_event_appearances,Total number of events the individual appeared in,API & CSV
+650,PEOPLE,num_exits,Total number of Exits,API & CSV
+651,PEOPLE,num_exits_ipo,Total number of Exits (IPO),API & CSV
+652,PEOPLE,num_founded_organizations,Number of Organizations that the person founded,API & CSV
+653,PEOPLE,num_investments,Number of Investments the Individual has participated in,API & CSV
+654,PEOPLE,num_jobs,Total number of Jobs the person has,API & CSV
+655,PEOPLE,num_lead_investments,Number of Investments led by the Individual,API & CSV
+656,PEOPLE,num_partner_investments,Number of Investments the Individual has partnered in,API & CSV
+657,PEOPLE,num_past_advisor_jobs,Total number of past Board and Advisor roles the person has,API & CSV
+658,PEOPLE,num_past_jobs,Total number of past Jobs the person has,API & CSV
+659,PEOPLE,num_portfolio_organizations,Number of portfolio companies associated to the Person,API & CSV
+660,PEOPLE,permalink,,API & CSV
+661,PEOPLE,permalink_aliases,These are the alternative aliases to the primary permalink of the Organization,API & CSV
+662,PEOPLE,primary_job_title,The person's primary job title,API & CSV
+663,PEOPLE,primary_organization,The organization associated to the person's primary job,API & CSV
+664,PEOPLE,rank,Algorithmic rank assigned to the top profiles on Crunchbase,API & CSV
+665,PEOPLE,rank_delta_d30,Movement in Rank over the last 30 days using a score from -10 to 10,API & CSV
+666,PEOPLE,rank_delta_d7,Movement in Rank over the last 7 days using a score from -10 to 10,API & CSV
+667,PEOPLE,rank_delta_d90,Movement in Rank over the last 90 days using a score from -10 to 10,API & CSV
+668,PEOPLE,rank_person,"Algorithmic rank assigned to the top 100,000 most active People",API & CSV
+669,PEOPLE,short_description,"Text of Person Description, Industries, and Industry Groups",API & CSV
+670,PEOPLE,twitter,Link to a person's X profile,API & CSV
+671,PEOPLE,updated_at,,API & CSV
+672,PEOPLE,uuid,,API & CSV
+673,PEOPLE,website,Link to a Person's website,API & CSV
+674,PEOPLE,website_url,Link to a Person's website,API & CSV
+675,PRESS_REFERENCES,activity_entities,Entities mentioned in the press reference,API & CSV
+676,PRESS_REFERENCES,author,The author of the press reference,API & CSV
+677,PRESS_REFERENCES,created_at,,API & CSV
+678,PRESS_REFERENCES,entity_def_id,,API & CSV
+679,PRESS_REFERENCES,facet_ids,,API & CSV
+680,PRESS_REFERENCES,identifier,Name of the Article,API & CSV
+681,PRESS_REFERENCES,posted_on,Date when the press reference is posted,API & CSV
+682,PRESS_REFERENCES,publisher,The publisher of the press reference,API & CSV
+683,PRESS_REFERENCES,thumbnail_url,,API & CSV
+684,PRESS_REFERENCES,title,The title of the press reference,API & CSV
+685,PRESS_REFERENCES,updated_at,,API & CSV
+686,PRESS_REFERENCES,url,The URL of the press reference,API & CSV
+687,PRESS_REFERENCES,uuid,,API & CSV
+688,PRINCIPALS,aliases,Alternate or previous names for the organization or individual,API & CSV
+689,PRINCIPALS,born_on,The birthdate of the person,API & CSV
+690,PRINCIPALS,categories,"Descriptive keyword for an Organization (e.g. SaaS, Android, Cloud Computing, Medical Device)",API & CSV
+691,PRINCIPALS,category_groups,"Superset of Industries (e.g. Software, Mobile, Health Care)",API & CSV
+692,PRINCIPALS,closed_on,The date when the organization is closed,API & CSV
+693,PRINCIPALS,company_type,Whether an Organization is for profit or non-profit,API & CSV
+694,PRINCIPALS,contact_email,General contact email for the organization or person,API & CSV
+695,PRINCIPALS,created_at,,API & CSV
+696,PRINCIPALS,delisted_on,The date when the Organization removed its stock from the stock exchange.,API & CSV
+697,PRINCIPALS,description,"Organization or Person Description, Industries, Industry Groups",API & CSV
+698,PRINCIPALS,died_on,The date when a person died,API & CSV
+699,PRINCIPALS,diversity_spotlights,"Types of diversity represented in an organization, specifically of those who are founding members, currently the CEO, or have check-writing abilities in an investment firm. This feature is in beta and may change with future updates.",API & CSV
+700,PRINCIPALS,entity_def_id,,API & CSV
+701,PRINCIPALS,equity_funding_total,Total funding amount raised across all Funding Rounds excluding debt,API & CSV
+702,PRINCIPALS,exited_on,Date the organization was acquired or went public,API & CSV
+703,PRINCIPALS,facebook,Link to organization/person's Facebook page,API & CSV
+704,PRINCIPALS,facet_ids,,API & CSV
+705,PRINCIPALS,first_name,First name of a Person,API & CSV
+706,PRINCIPALS,founded_on,Date the Organization was founded,API & CSV
+707,PRINCIPALS,founder_identifiers,Founders of the organization,API & CSV
+708,PRINCIPALS,funding_stage,"This field describes an organization's most recent funding status (e.g. Early Stage Venture, Late Stage Venture, M&A)",API & CSV
+709,PRINCIPALS,funding_total,Total funding amount raised across all Funding Rounds,API & CSV
+710,PRINCIPALS,gender,A Person's gender,API & CSV
+711,PRINCIPALS,hub_tags,Tags representing special attributes of organizations that are used in Hubs,API & CSV
+712,PRINCIPALS,identifier,Name of the Organization or Person,API & CSV
+713,PRINCIPALS,image_id,The profile image of this organization or person on Crunchbase,API & CSV
+714,PRINCIPALS,image_url,The url of the profile image,API & CSV
+715,PRINCIPALS,investor_identifiers,"The top 5 investors with investments in this company, ordered by Crunchbase Rank",API & CSV
+716,PRINCIPALS,investor_stage,"This describes the stage of investor this organization or person is (e.g. Angel, Fund of Funds, Venture Capital)",API & CSV
+717,PRINCIPALS,investor_type,"This describes the type of investor this organization or person is (e.g. Angel, Fund of Funds, Venture Capital)",API & CSV
+718,PRINCIPALS,ipo_status,The current public status of the Organization,API & CSV
+719,PRINCIPALS,last_equity_funding_total,Amount of most recent Funding Round excluding debt,API & CSV
+720,PRINCIPALS,last_equity_funding_type,The most recent Funding Round excluding debt,API & CSV
+721,PRINCIPALS,last_funding_at,Date of most recent Funding Round,API & CSV
+722,PRINCIPALS,last_funding_total,Amount of most recent Funding Round,API & CSV
+723,PRINCIPALS,last_funding_type,"Last funding round type (e.g. Series A, Seed, Private Equity)",API & CSV
+724,PRINCIPALS,last_name,Last name of a Person,API & CSV
+725,PRINCIPALS,layout_id,,API & CSV
+726,PRINCIPALS,linkedin,Link to organization/person's LinkedIn page,API & CSV
+727,PRINCIPALS,location_group_identifiers,"Where the principal is located (e.g. San Francisco Bay Area, Silicon Valley)",API & CSV
+728,PRINCIPALS,location_identifiers,Where the organization is headquartered,API & CSV
+729,PRINCIPALS,name,,API & CSV
+730,PRINCIPALS,num_alumni,Total number of alumni,API & CSV
+731,PRINCIPALS,num_articles,Number of news articles that reference the Organization,API & CSV
+732,PRINCIPALS,num_diversity_spotlight_investments,Total number of diversity investments made by an investor,API & CSV
+733,PRINCIPALS,num_employees_enum,Total number of Employees,API & CSV
+734,PRINCIPALS,num_enrollments,Total number of Enrollments,API & CSV
+735,PRINCIPALS,num_event_appearances,Total number of events An Organization or Person appeared in,API & CSV
+736,PRINCIPALS,num_exits,Total number of Exits,API & CSV
+737,PRINCIPALS,num_exits_ipo,Total number of Exits (IPO),API & CSV
+738,PRINCIPALS,num_founded_organizations,Number of Organizations that the Person founded,API & CSV
+739,PRINCIPALS,num_founders,Total number of Founders,API & CSV
+740,PRINCIPALS,num_funding_rounds,Total number of Funding Rounds,API & CSV
+741,PRINCIPALS,num_funds,Total number of Funds raised,API & CSV
+742,PRINCIPALS,num_investments,Total number of Investments made,API & CSV
+743,PRINCIPALS,num_investors,Total number of investment firms and individual investors,API & CSV
+744,PRINCIPALS,num_jobs,Total number of Jobs the person has,API & CSV
+745,PRINCIPALS,num_lead_investments,Number of Investments led by the Person,API & CSV
+746,PRINCIPALS,num_lead_investors,Total number of lead investment firms and individual investors,API & CSV
+747,PRINCIPALS,num_partner_investments,Number of Investments the Individual has partnered in,API & CSV
+748,PRINCIPALS,num_portfolio_organizations,Total number of portfolio organizations,API & CSV
+749,PRINCIPALS,operating_status,"Operating Status of Organization e.g. Active, Closed",API & CSV
+750,PRINCIPALS,permalink,,API & CSV
+751,PRINCIPALS,permalink_aliases,Alternative aliases to the primary permalink of the organization or person,API & CSV
+752,PRINCIPALS,phone_number,General phone number of the organization or person,API & CSV
+753,PRINCIPALS,primary_job_title,"The person's primary job title (e.g. CEO, Chief Architect, Product Manager)",API & CSV
+754,PRINCIPALS,primary_organization,The organization associated to the person's primary job,API & CSV
+755,PRINCIPALS,program_application_deadline,The deadline for applying to the Accelerator Program,API & CSV
+756,PRINCIPALS,program_duration,The duration of the Acceleration Program in number of weeks,API & CSV
+757,PRINCIPALS,program_type,"The type of Accelerator Program (e.g. On-Site, Online)",API & CSV
+758,PRINCIPALS,rank,Algorithmic rank assigned to the top profiles on Crunchbase,API & CSV
+759,PRINCIPALS,rank_delta_d30,Movement in Rank over the last 30 days using a score from -10 to 10,API & CSV
+760,PRINCIPALS,rank_delta_d7,Movement in Rank over the last 7 days using a score from -10 to 10,API & CSV
+761,PRINCIPALS,rank_delta_d90,Movement in Rank over the last 90 days using a score from -10 to 10,API & CSV
+762,PRINCIPALS,revenue_range,Estimated Revenue Range for Organizations,API & CSV
+763,PRINCIPALS,school_method,"The type of School Method (e.g. On Campus, Online)",API & CSV
+764,PRINCIPALS,school_program,"The type of School Program (e.g. Bootcamp, Four Year University)",API & CSV
+765,PRINCIPALS,school_type,"The type of School (e.g. Public, Private)",API & CSV
+766,PRINCIPALS,short_description,"Text of Organization or Person Description, Industries, and Industry Groups",API & CSV
+767,PRINCIPALS,status,"Status of Organization e.g. Operating, Closed, Acquired, IPO",API & CSV
+768,PRINCIPALS,stock_exchange_symbol,"Stock exchange where the Organization is listed e.g. NYSE, NASDAQ",API & CSV
+769,PRINCIPALS,stock_symbol,"Stock ticker symbol (e.g. AAPL, FB, TWTR)",API & CSV
+770,PRINCIPALS,twitter,Link to an organization/person's X page,API & CSV
+771,PRINCIPALS,updated_at,,API & CSV
+772,PRINCIPALS,uuid,,API & CSV
+773,PRINCIPALS,website,Link to homepage,API & CSV
+774,PRINCIPALS,website_url,Link to homepage,API & CSV
+775,PRINCIPALS,went_public_on,The date when the Organization went public,API & CSV
+776,PRODUCTS,created_at,,API & CSV
+777,PRODUCTS,description,Product description,API & CSV
+778,PRODUCTS,discontinuation_sentiment,Sentiment associated with product discontinuation,API & CSV
+779,PRODUCTS,entity_def_id,Product,API & CSV
+780,PRODUCTS,identifier,Name of the product,API & CSV
+781,PRODUCTS,launch_sentiment,Sentiment associated with product launch,API & CSV
+782,PRODUCTS,local_rank,Rank relative to this organization's other products,API & CSV
+783,PRODUCTS,micro_categories,Micro-Industries associated with this product,API & CSV
+784,PRODUCTS,organization,Unique identifier for the organization associated with this product,API & CSV
+785,PRODUCTS,updated_at,,API & CSV
+786,PRODUCTS,uuid,,API & CSV
+787,PRODUCT_LAUNCHES,created_at,Time of Creation,API & CSV
+788,PRODUCT_LAUNCHES,description,Brief summary of context,API & CSV
+789,PRODUCT_LAUNCHES,entity_def_id,Entity Def Type,API & CSV
+790,PRODUCT_LAUNCHES,identifier,Product launch identifier,API & CSV
+791,PRODUCT_LAUNCHES,key_event_date,Date when the news article was posted,API & CSV
+792,PRODUCT_LAUNCHES,organization,Organization that had a product launch mentioned,API & CSV
+793,PRODUCT_LAUNCHES,press_reference_link,Title of the news article,API & CSV
+794,PRODUCT_LAUNCHES,updated_at,Time of Update,API & CSV
+795,PRODUCT_LAUNCHES,uuid,UUID,API & CSV
+796,PRODUCT_SIMILARITIES,created_at,,API & CSV
+797,PRODUCT_SIMILARITIES,entity_def_id,Product Similarity,API & CSV
+798,PRODUCT_SIMILARITIES,identifier,Product Similarity,API & CSV
+799,PRODUCT_SIMILARITIES,source,,API & CSV
+800,PRODUCT_SIMILARITIES,target,,API & CSV
+801,PRODUCT_SIMILARITIES,target_organization,,API & CSV
+802,PRODUCT_SIMILARITIES,updated_at,,API & CSV
+803,PRODUCT_SIMILARITIES,uuid,,API & CSV
+804,REMAIN_PRIVATE_PREDICTIONS,created_at,Time of Creation,API & CSV
+805,REMAIN_PRIVATE_PREDICTIONS,entity_def_id,Entity Def Type,API & CSV
+806,REMAIN_PRIVATE_PREDICTIONS,example_funding_round,An example of a similar company in the same industry that had a Funding Round in the last 6 months,API & CSV
+807,REMAIN_PRIVATE_PREDICTIONS,example_ipo,An example of a similar company in the same industry that had an IPO in the last 6 months,API & CSV
+808,REMAIN_PRIVATE_PREDICTIONS,generated_on,Date on which this No Exit Prediction was generated,API & CSV
+809,REMAIN_PRIVATE_PREDICTIONS,growth_insight,The Growth Insight linked to this No Exit Prediction.,API & CSV
+810,REMAIN_PRIVATE_PREDICTIONS,identifier,No Exit Prediction Title,API & CSV
+811,REMAIN_PRIVATE_PREDICTIONS,key_employee_change,"There has been a change to the executive team's composition (hire, departure, or promotion)",API & CSV
+812,REMAIN_PRIVATE_PREDICTIONS,key_leadership_hire,A new C-level Officer (CXO) was hired in the last 12 months,API & CSV
+813,REMAIN_PRIVATE_PREDICTIONS,media_sentiment,A sudden increase in media coverage with positive sentiment in the last 12 months,API & CSV
+814,REMAIN_PRIVATE_PREDICTIONS,organization,Unique identifier for the organization associated with this No Exit prediction,API & CSV
+815,REMAIN_PRIVATE_PREDICTIONS,probability_score,The predicted probability that this Organization will remain private,API & CSV
+816,REMAIN_PRIVATE_PREDICTIONS,probability_tier,The predicted probability of remaining private for this organization is divided into distinct tiers that quantify the likelihood of this event.,API & CSV
+817,REMAIN_PRIVATE_PREDICTIONS,unicorn_status,Achieved unicorn status in the last 12 months,API & CSV
+818,REMAIN_PRIVATE_PREDICTIONS,updated_at,Time of Update,API & CSV
+819,REMAIN_PRIVATE_PREDICTIONS,uuid,UUID,API & CSV
+820,RESEARCH_INSIGHTS,created_at,,API & CSV
+821,RESEARCH_INSIGHTS,description,A concise text statement highlighting the company's recent research and development,API & CSV
+822,RESEARCH_INSIGHTS,entity_def_id,Research and Development Insight,API & CSV
+823,RESEARCH_INSIGHTS,generated_on,Date on which this insight was generated,API & CSV
+824,RESEARCH_INSIGHTS,identifier,Name of the Research and Development Insight,API & CSV
+825,RESEARCH_INSIGHTS,organization,Unique identifier for the organization associated with this research insight,API & CSV
+826,RESEARCH_INSIGHTS,updated_at,,API & CSV
+827,RESEARCH_INSIGHTS,uuid,,API & CSV
